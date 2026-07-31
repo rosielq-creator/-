@@ -6,8 +6,8 @@
   <meta name="description" content="Greentomato represents next-generation AI artists and produces AI-native campaigns for brands.">
   <meta name="theme-color" content="#0b0d0a">
   <title>Greentomato | Next-generation artists</title>
-  <link rel="stylesheet" href="home-v4.css?v=20260731-36">
-  <link rel="stylesheet" href="typography.css?v=20260730-8">
+  <link rel="stylesheet" href="home-v4.css?v=20260730-17">
+  <link rel="stylesheet" href="typography.css?v=20260730-5">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -25,51 +25,54 @@
   </header>
 
   <main id="main">
-    <section class="hero-sequence" aria-labelledby="hero-title">
-      <div class="hero-stage">
-        <canvas id="mineralCanvas" aria-hidden="true"></canvas>
-        <div class="hero-atmosphere" aria-hidden="true"></div>
-        <div class="hero-title" id="hero-title" aria-label="Next generation talents">
-          <span>NEXT</span><span>GENERATION</span><span>TALENTS</span>
-        </div>
-        <div class="hero-meta">
-          <p>AI TALENT AGENCY</p>
-          <div>
-            <p>Distinct digital personalities<br>built for culture, brands and stories.</p>
-          </div>
-        </div>
+    <section class="hero" aria-labelledby="hero-title">
+      <canvas id="mineralCanvas" aria-hidden="true"></canvas>
+      <div class="hero-atmosphere" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <h1 id="hero-title">We build next-generation<br>artists with identities,<br>voices and worlds.</h1>
+        <p>For brands ready to create culture,<br>not just content.</p>
+      </div>
+      <div class="hero-wordmark" aria-hidden="true"><span>AI</span><span>PRODUCTION</span></div>
+      <div class="hero-meta" aria-hidden="true">
+        <span>AI TALENT AGENCY</span>
+        <span>HONG KONG / GLOBAL</span>
       </div>
     </section>
 
+    <section class="frontline" id="about" aria-labelledby="frontline-title">
+      <div class="frontline-flow" aria-hidden="true"></div>
+      <p class="frontline-kicker">Our position</p>
+      <h2 class="frontline-manifesto" id="frontline-title">
+        <span>We move with AI at the speed of possibility,</span>
+        <span>without surrendering the standards that make creative work worth remembering.</span>
+        <span>Original thinking, exacting quality and considered taste</span>
+        <span>remain human at the core.</span>
+      </h2>
+    </section>
+
     <section class="artists" id="artists" aria-labelledby="artists-title">
-      <div class="artists-shell">
-        <h2 class="sr-only" id="artists-title">Greentomato artists and original worlds.</h2>
-        <aside class="artists-manifesto">
-          <div class="artists-manifesto-head">
-            <span>GT Journal / Artist Index</span>
-            <small>01—05 / 2026</small>
-          </div>
-          <p>Distinct identities with a point of view, created for culture, brands and stories.</p>
-          <p>We move with AI while keeping human taste, craft and intention at the centre.</p>
-        </aside>
-        <div class="artist-name-list" role="list" aria-label="Greentomato artists">
-          <a class="artist-name is-active" data-artist="0" href="maya.html" role="listitem"><span>Maya</span></a>
-          <a class="artist-name" data-artist="1" href="amber.html" role="listitem"><span>Amber</span></a>
-          <a class="artist-name" data-artist="2" href="ooona.html" role="listitem"><span>Ooona</span></a>
-          <a class="artist-name" data-artist="3" href="noah.html" role="listitem"><span>Noah</span></a>
-          <a class="artist-name" data-artist="4" href="mario.html" role="listitem"><span>Mario</span></a>
-        </div>
-        <a class="artist-preview" data-artist-link href="maya.html" aria-label="View Maya profile">
-          <span class="artist-preview-layer is-visible" aria-hidden="true">
-            <img data-artist-image src="assets/artist-previews/maya.webp" alt="">
-          </span>
-          <span class="artist-preview-layer" aria-hidden="true">
-            <img data-artist-image-next src="assets/artist-previews/maya.webp" alt="">
-          </span>
-          <span class="artist-preview-index" aria-hidden="true">GT / ARTIST <b data-artist-short-number>01</b></span>
-          <span class="artist-preview-meta"><b data-artist-role>Luxury fashion / Art direction</b><i>View profile ↗</i></span>
+      <div class="artists-intro">
+        <p class="section-tag">02 / ARTISTS</p>
+        <h2 id="artists-title">Five identities.<br><em>Infinite worlds.</em></h2>
+      </div>
+      <div class="artist-sticky">
+        <div class="artist-ghost" aria-hidden="true"><span data-ghost-prev>AMBER</span><strong data-ghost-name>MAYA</strong><span data-ghost-next>OOONA</span></div>
+        <a class="artist-image" data-artist-link href="maya.html">
+          <img data-artist-image src="assets/profiles/maya/pink-editorial.png" alt="Maya">
         </a>
-        <a class="artists-view-more" href="artists.html"><span>View more artists</span><b aria-hidden="true">↗</b></a>
+        <div class="artist-info">
+          <p><span data-artist-index>01</span> / 05</p>
+          <h3 data-artist-name>Maya</h3>
+          <p data-artist-role>Luxury fashion · Art</p>
+          <a data-artist-link-text href="maya.html">Explore profile ↗</a>
+        </div>
+        <div class="artist-tabs" role="tablist" aria-label="Artists">
+          <button class="is-active" data-artist="0" type="button">01 Maya</button>
+          <button data-artist="1" type="button">02 Amber</button>
+          <button data-artist="2" type="button">03 Ooona</button>
+          <button data-artist="3" type="button">04 Noah</button>
+          <button data-artist="4" type="button">05 Mario</button>
+        </div>
       </div>
     </section>
 
@@ -79,83 +82,67 @@
       <p class="statement-note">Greentomato develops digital talent as long-term creative IP, not one-off generated faces.</p>
     </section>
 
-    <section class="work success-stories" id="work" aria-labelledby="work-title">
+    <section class="work" id="work" aria-labelledby="work-title">
       <header class="work-head">
-        <p class="section-tag">Selected work</p>
-        <h2 id="work-title">Success stories</h2>
-        <p class="work-intro">Campaigns, characters and moving images made with brands that want to shape culture.</p>
+        <p class="section-tag">04 / SELECTED WORK</p>
+        <h2 id="work-title">Work that moves<br><em>at culture speed.</em></h2>
       </header>
 
-      <div class="work-flow">
-      <article class="work-row work-row--lead">
-        <div class="work-media" data-case-href="v2-preview/case.html?id=takoyaki" data-case-label="View ChillGOOD case study">
+      <article class="work-row">
+        <a class="work-media" href="v2-preview/case.html?id=takoyaki" aria-label="View ChillGOOD case study">
           <video muted loop playsinline preload="metadata" poster="assets/work/takoyaki-poster.jpg"><source src="assets/work/web-video/takoyaki.web.mp4" type="video/mp4"></video>
-        </div>
+          <span>PLAY / 00:15</span>
+        </a>
         <div class="work-copy">
-          <p>Entertainment / AI film</p><h3>ChillGOOD × TV章魚燒</h3>
+          <p>ENTERTAINMENT · 01/04</p><h3>ChillGOOD × TV章魚燒</h3>
           <p>AI-native music film and campaign world for a new entertainment brand.</p>
-          <a href="v2-preview/case.html?id=takoyaki">View case <b>↗</b></a>
+          <dl><dt>Artist</dt><dd>Mario</dd><dt>Scope</dt><dd>Film / Image / Direction</dd></dl>
         </div>
       </article>
-      <article class="work-row work-row--left">
-        <div class="work-media" data-case-href="v2-preview/case.html?id=peninsula" data-case-label="View The Peninsula case study">
+      <article class="work-row">
+        <a class="work-media" href="v2-preview/case.html?id=peninsula" aria-label="View The Peninsula case study">
           <video muted loop playsinline preload="metadata" poster="assets/work/peninsula/peninsula-fathers-day-key-visual.jpg"><source src="assets/work/web-video/peninsula.web.mp4" type="video/mp4"></video>
-        </div>
+          <span>PLAY / 00:15</span>
+        </a>
         <div class="work-copy">
-          <p>Hospitality / Campaign</p><h3>The Peninsula Hong Kong</h3>
+          <p>HOSPITALITY · 02/04</p><h3>The Peninsula Hong Kong</h3>
           <p>A cinematic Father’s Day story created for an iconic Hong Kong destination.</p>
-          <a href="v2-preview/case.html?id=peninsula">View case <b>↗</b></a>
+          <dl><dt>Category</dt><dd>Campaign</dd><dt>Scope</dt><dd>Film / Key visual</dd></dl>
         </div>
       </article>
-      <article class="work-row work-row--right">
-        <div class="work-media" data-case-href="v2-preview/case.html?id=octopus" data-case-label="View Octopus case study">
+      <article class="work-row">
+        <a class="work-media" href="v2-preview/case.html?id=octopus" aria-label="View Octopus case study">
           <video muted loop playsinline preload="metadata" poster="assets/work/octopus-cover.jpg"><source src="assets/work/web-video/octopus.web.mp4" type="video/mp4"></video>
-        </div>
+          <span>PLAY / 00:15</span>
+        </a>
         <div class="work-copy">
-          <p>Transport / Social content</p><h3>Octopus</h3>
+          <p>TRANSPORT · 03/04</p><h3>Octopus</h3>
           <p>A fast-moving social campaign blending familiar city rituals with an AI-native visual system.</p>
-          <a href="v2-preview/case.html?id=octopus">View case <b>↗</b></a>
+          <dl><dt>Category</dt><dd>Social content</dd><dt>Scope</dt><dd>Film / Production</dd></dl>
         </div>
       </article>
-      <article class="work-row work-row--wide">
-        <div class="work-media" data-case-href="v2-preview/case.html?id=mgm" data-case-label="View MGM case study">
+      <article class="work-row">
+        <a class="work-media" href="v2-preview/case.html?id=mgm" aria-label="View MGM case study">
           <video muted loop playsinline preload="metadata" poster="assets/work/mgm-01-poster.jpg"><source src="assets/work/web-video/mgm-01.web.mp4" type="video/mp4"></video>
-        </div>
+          <span>PLAY / 00:15</span>
+        </a>
         <div class="work-copy">
-          <p>Hospitality / Commercial film</p><h3>澳门美高梅 MGM</h3>
+          <p>HOSPITALITY · 04/04</p><h3>MGM Macau</h3>
           <p>A series of surreal destination films built for high-impact digital distribution.</p>
-          <a href="v2-preview/case.html?id=mgm">View case <b>↗</b></a>
+          <dl><dt>Category</dt><dd>Commercial film</dd><dt>Scope</dt><dd>Concept / Film</dd></dl>
         </div>
       </article>
-      </div>
       <a class="view-all" href="v2-preview/work.html"><span>View all work</span><b>(→)</b></a>
     </section>
 
     <section class="services" id="services" aria-labelledby="services-title">
-      <header class="services-head">
-        <p class="section-tag">What we do</p>
-        <h2 id="services-title">From face<br><em>to franchise.</em></h2>
-      </header>
-      <div class="services-stage">
-        <figure class="service-visual">
-          <span class="service-visual-layer is-visible"><img src="assets/artist-previews/maya.webp" alt=""></span>
-          <span class="service-visual-layer"><img src="assets/artist-previews/maya.webp" alt=""></span>
-          <figcaption><span data-service-index>01</span><b data-service-caption>Find the right digital face for the idea.</b></figcaption>
-        </figure>
-        <div class="service-list" role="list">
-          <button class="service-item is-active" type="button" data-service="0" role="listitem" aria-pressed="true">
-            <span>01</span><strong>AI Talent Casting</strong><i>Match brands with a distinctive digital talent, audience and point of view.</i>
-          </button>
-          <button class="service-item" type="button" data-service="1" role="listitem" aria-pressed="false">
-            <span>02</span><strong>Character Building</strong><i>Build a recognisable identity, voice and visual world designed to grow.</i>
-          </button>
-          <button class="service-item" type="button" data-service="2" role="listitem" aria-pressed="false">
-            <span>03</span><strong>Content Production</strong><i>Create campaign films, social content and stills with an AI-native workflow.</i>
-          </button>
-          <button class="service-item" type="button" data-service="3" role="listitem" aria-pressed="false">
-            <span>04</span><strong>Campaign Collaboration</strong><i>Develop an end-to-end creative partnership around a launch or cultural moment.</i>
-          </button>
-        </div>
+      <p class="section-tag">05 / SERVICES</p>
+      <h2 id="services-title">From face<br><em>to franchise.</em></h2>
+      <div class="service-list">
+        <a href="#contact"><span>01</span> AI Talent Casting <b>↗</b></a>
+        <a href="#contact"><span>02</span> Character Building <b>↗</b></a>
+        <a href="#contact"><span>03</span> Content Production <b>↗</b></a>
+        <a href="#contact"><span>04</span> Campaign Collaboration <b>↗</b></a>
       </div>
     </section>
 
@@ -166,6 +153,6 @@
     </section>
   </main>
   <footer><span class="official-logo" role="img" aria-label="Greentomato"></span><p>Hong Kong / Global · © 2026</p></footer>
-  <script src="home-v4.js?v=20260731-26"></script>
+  <script src="home-v4.js?v=20260730-13"></script>
 </body>
 </html>

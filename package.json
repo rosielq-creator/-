@@ -4,8 +4,7 @@
   "private": true,
   "description": "GTAI digital talent agency frontend prototype",
   "scripts": {
-    "start": "node server.js",
-    "test": "node --test tests/*.test.mjs"
+    "start": "node server.js"
   },
   "engines": {
     "node": ">=20"

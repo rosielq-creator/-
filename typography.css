@@ -1,16 +1,16 @@
 @font-face {
-  font-family: "Saira";
-  src: url("assets/fonts/saira/Saira-SemiBold.woff2") format("woff2");
+  font-family: "Mona Sans";
+  src: url("assets/fonts/mona-sans/MonaSans-Variable.ttf") format("truetype-variations");
   font-style: normal;
-  font-weight: 600;
+  font-weight: 200 900;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Mona Sans";
-  src: url("assets/fonts/mona-sans/MonaSans-Variable.ttf") format("truetype");
+  font-family: "Saira";
+  src: url("assets/fonts/saira/Saira-SemiBold.woff2") format("woff2");
   font-style: normal;
-  font-weight: 200 900;
+  font-weight: 600;
   font-display: swap;
 }
 
@@ -50,40 +50,9 @@ body :where(h1, h2, h3, h4, h5, h6) :where(span, strong, em, small) {
   font-stretch: normal;
 }
 
-/* Mona Sans gives manifesto and supporting copy a calmer editorial rhythm. */
-body :where(
-  .artists-manifesto,
-  .hero-meta,
-  .statement-note,
-  .work-copy > p,
-  .work-copy dl,
-  .service-list span,
-  .process p,
-  .about p,
-  .contact p,
-  footer
-),
-body :where(
-  .artists-manifesto,
-  .hero-meta,
-  .statement-note,
-  .work-copy > p,
-  .work-copy dl,
-  .service-list span,
-  .process p,
-  .about p,
-  .contact p,
-  footer
-) :where(p, span, strong, em, small, dt, dd, a) {
-  font-family: "Mona Sans", var(--sans) !important;
-  font-weight: 450;
-  font-stretch: normal;
-  letter-spacing: -0.012em;
-}
-
 .hero-wordmark,
 .hero-wordmark span {
-  font-family: var(--sans) !important;
-  font-weight: 700;
+  font-family: "Mona Sans", sans-serif !important;
+  font-weight: 800;
   font-stretch: normal;
 }
