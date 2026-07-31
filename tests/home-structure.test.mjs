@@ -18,6 +18,7 @@ assert.match(html, /data-artist-left/, "expected left artist classification");
 assert.match(html, /data-artist-right/, "expected right artist classification");
 assert.match(html, /data-artist-stage/, "expected a single artist stage");
 assert.match(html, /class="manifesto-line"/, "expected editorial manifesto lines");
+assert.match(html, /rel="icon"/, "expected an explicit favicon to avoid a missing browser asset");
 assert.doesNotMatch(css, /scroll-snap-type\s*:/, "homepage must not use scroll snapping");
 assert.match(js, /closestArtistToViewportCenter/, "artist selection must follow the trigger nearest the viewport center");
 
