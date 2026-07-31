@@ -1,0 +1,12 @@
+{
+  "name": "gtai-talent-agency",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GTAI digital talent agency frontend prototype",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

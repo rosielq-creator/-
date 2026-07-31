@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="theme-color" content="#f3f8f3">
+  <title>GTAI — Next-Generation AI Talents</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Instrument+Serif:ital@0;1&family=Noto+Sans+TC:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260723-2">
+</head>
+<body data-page="home">
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <section class="gate" id="gate" aria-labelledby="gate-title">
+    <div class="gate-grid" aria-hidden="true"></div>
+    <div class="gate-orbit orbit-one" aria-hidden="true"></div>
+    <div class="gate-orbit orbit-two" aria-hidden="true"></div>
+    <div class="gate-copy">
+      <p class="micro">PRIVATE PREVIEW / 001</p>
+      <h1 id="gate-title" class="glitch-mark" data-text="GTAI">GTAI</h1>
+      <p class="gate-tagline" data-i18n="tagline">Next-Generation AI Talents</p>
+      <a class="gt-endorsement gate-endorsement" href="https://gtomato.com/" target="_blank" rel="noreferrer" aria-label="GreenTomato company website">
+        <span>BY</span><img src="https://gtomato.com/_next/static/media/logo-gt-color.fd039543.svg" alt="GreenTomato">
+      </a>
+    </div>
+    <form class="gate-form" id="gateForm">
+      <label>
+        <span data-i18n="account">Account</span>
+        <input id="account" name="account" autocomplete="username" required>
+      </label>
+      <label>
+        <span data-i18n="password">Password</span>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+      </label>
+      <p class="gate-error" id="gateError" aria-live="polite"></p>
+      <button type="submit" class="enter-button">
+        <span data-i18n="enter">Enter GTAI</span><span aria-hidden="true">↗</span>
+      </button>
+      <p class="micro gate-note" data-i18n="soundNote">Sound experience begins after entry</p>
+    </form>
+  </section>
+
+  <div class="site-shell" id="siteShell" inert>
+    <header class="site-header">
+      <div class="brand-lockup">
+        <a class="brand glitch-small" href="index.html" aria-label="GTAI home" data-text="GTAI">GTAI</a>
+        <a class="gt-endorsement" href="https://gtomato.com/" target="_blank" rel="noreferrer" aria-label="GreenTomato company website"><span>BY</span><img src="https://gtomato.com/_next/static/media/logo-gt-color.fd039543.svg" alt="GreenTomato"></a>
+      </div>
+      <nav class="header-nav" aria-label="Primary navigation">
+        <button class="nav-link is-active" type="button" data-view="home" data-i18n="home">Home</button>
+        <a class="nav-link nav-external" href="https://gtomato.com/" target="_blank" rel="noreferrer" data-i18n="companyNav">Company</a>
+        <button class="nav-link" type="button" data-view="services" data-i18n="servicesNav">Services</button>
+        <div class="artist-nav-menu">
+          <button class="nav-link artist-menu-trigger" type="button" data-view="artists" data-i18n="artistsNav">Artists</button>
+          <button class="artist-menu-toggle" type="button" aria-expanded="false" aria-label="Open artist list">⌄</button>
+          <div class="artist-dropdown" aria-label="Artist profiles">
+            <button type="button" data-view="artists" data-i18n="allArtists">All artists</button>
+            <a href="mario.html">Mario</a><a href="ooona.html">Ooona</a><a href="noah.html">Noah</a><a href="maya.html">Maya</a><a href="amber.html">Amber</a>
+          </div>
+        </div>
+        <button class="nav-link" type="button" data-view="work" data-i18n="workNav">Work</button>
+        <button class="nav-link" type="button" data-view="crew" data-i18n="crewNav">Crew</button>
+      </nav>
+      <div class="header-tools">
+        <button class="text-button" id="langToggle" type="button" aria-label="Switch language">繁</button>
+        <button class="sound-button" id="soundToggle" type="button" aria-label="Mute sound">
+          <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span id="soundLabel">SOUND ON</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="home-experience" id="homeExperience" aria-labelledby="homeTitle">
+        <canvas id="crystalCanvas" aria-hidden="true"></canvas>
+        <div class="home-crystal-fallback" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="grid-plane" aria-hidden="true"></div>
+        <p class="home-edition micro">GTAI / A GREENTOMATO CREATIVE VENTURE</p>
+        <h1 id="homeTitle" class="home-title"><span data-i18n="homeLineOne">AI PRODUCTION</span></h1>
+        <div class="kinetic-type" id="kineticType" aria-hidden="true">
+          <i class="kinetic-piece kinetic-letter piece-blue" data-x=".245" data-y=".225" data-mobile-x=".09" data-mobile-y=".30"><span>G</span></i>
+          <i class="kinetic-piece kinetic-letter piece-ink" data-x=".675" data-y=".255" data-mobile-x=".10" data-mobile-y=".68"><span>T</span></i>
+          <i class="kinetic-piece kinetic-letter piece-silver" data-x=".17" data-y=".70" data-mobile-x=".24" data-mobile-y=".22"><span>A</span></i>
+          <i class="kinetic-piece kinetic-letter piece-blue" data-x=".895" data-y=".755" data-mobile-x=".90" data-mobile-y=".58"><span>I</span></i>
+          <i class="kinetic-piece kinetic-symbol piece-asterisk" data-x=".82" data-y=".72" data-mobile-x=".82" data-mobile-y=".76"><span>✦</span></i>
+          <i class="kinetic-piece kinetic-symbol piece-plus" data-x=".50" data-y=".86" data-mobile-x=".50" data-mobile-y=".82"><span>+</span></i>
+          <i class="kinetic-piece kinetic-orb" data-x=".43" data-y=".18"><span></span></i>
+        </div>
+        <div class="toy-cast toy-ranking-tree" id="talentGuides" aria-label="Explore the GTAI roster, ranked from one to five">
+          <div class="toy-orbit-device" aria-hidden="true">
+            <i class="orbit-device-loop"></i>
+            <i class="orbit-device-spine"></i>
+            <i class="orbit-device-node node-one"></i>
+            <i class="orbit-device-node node-two"></i>
+            <i class="orbit-device-node node-three"></i>
+            <i class="orbit-device-node node-four"></i>
+            <i class="orbit-device-node node-five"></i>
+          </div>
+          <button class="toy-talent toy-mario" type="button" data-talent="0" aria-label="Meet Mario">
+            <span class="toy-anchor toy-plinth" aria-hidden="true"><i>M</i></span>
+            <span class="toy-figure mario-tennis-rig" aria-hidden="true">
+              <img class="mario-tennis-fallback" src="assets/figures/mario-tennis-toy.png" alt="" decoding="async">
+              <canvas class="mario-tennis-canvas" width="768" height="1152" data-source="assets/figures/mario-tennis-toy.png"></canvas>
+            </span>
+            <span class="toy-rank" aria-label="Preview rank 1">#01</span>
+            <span class="toy-champion-flag" aria-hidden="true"><i></i><b>MOST<br>LOVED</b></span>
+            <span class="toy-label"><b>MARIO</b><small>VIEW PROFILE ↗</small></span>
+          </button>
+          <button class="toy-talent toy-noah" type="button" data-talent="1" aria-label="Meet Noah">
+            <img class="toy-figure" src="assets/figures/noah-toy.png" alt="" decoding="async">
+            <span class="toy-rank" aria-label="Preview rank 3">#03</span>
+            <span class="toy-label"><b>NOAH</b><small>VIEW PROFILE ↗</small></span>
+          </button>
+          <button class="toy-talent toy-ooona" type="button" data-talent="2" aria-label="Meet Ooona">
+            <span class="toy-anchor toy-cube" aria-hidden="true"><i>A</i></span>
+            <img class="toy-figure" src="assets/figures/ooona-toy.png" alt="" decoding="async">
+            <span class="toy-rank" aria-label="Preview rank 2">#02</span>
+            <span class="toy-label"><b>OOONA</b><small>VIEW PROFILE ↗</small></span>
+          </button>
+          <button class="toy-talent toy-amber" type="button" data-talent="3" aria-label="Meet Amber">
+            <span class="toy-anchor toy-bar" aria-hidden="true"></span>
+            <img class="toy-figure" src="assets/figures/amber-toy.png" alt="" decoding="async">
+            <span class="toy-rank" aria-label="Preview rank 5">#05</span>
+            <span class="toy-label"><b>AMBER</b><small>VIEW PROFILE ↗</small></span>
+          </button>
+          <button class="toy-talent toy-maya" type="button" data-talent="4" aria-label="Meet Maya">
+            <span class="toy-anchor toy-steps" aria-hidden="true"><i></i><i></i><i></i></span>
+            <img class="toy-figure" src="assets/figures/maya-toy.png" alt="" decoding="async">
+            <span class="toy-rank" aria-label="Preview rank 4">#04</span>
+            <span class="toy-label"><b>MAYA</b><small>VIEW PROFILE ↗</small></span>
+          </button>
+        </div>
+        <p class="home-manifesto" data-i18n="homeManifesto">An independent roster of AI talents built for fashion, culture and the next visual era.</p>
+        <button class="roster-entry" id="rosterEntry" type="button"><span data-i18n="meetTalents">Meet the talents</span><b aria-hidden="true">→</b></button>
+        <div class="home-coordinates" aria-hidden="true"><span>22.3193° N</span><span>114.1694° E</span><span>LIVE / 05 TALENTS</span></div>
+      </section>
+
+      <section class="talent-stage" id="talentStage" aria-roledescription="carousel" aria-label="GTAI talents" aria-hidden="true" inert>
+      <div class="grid-plane" aria-hidden="true"></div>
+      <div class="talent-atmosphere" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="spatial-objects talent-objects" aria-hidden="true">
+        <i class="spatial-orb"></i>
+        <i class="spatial-ring"></i>
+      </div>
+
+      <div class="talent-panels" id="talentPanels">
+        <article class="talent-panel is-active" data-index="0" style="--accent:#00a75d;--ink:#005646;">
+          <div class="talent-index"><span>01</span><i></i><span>05</span></div>
+          <p class="talent-kicker">AI TALENT / PHOTOGRAPHER / LIFESTYLE</p>
+          <h2 class="talent-name"><span>MAR</span><em>IO</em></h2>
+          <figure class="talent-figure mario-figure">
+            <img data-src="assets/mario-hero.png" alt="Mario in a monochrome studio portrait" decoding="async">
+            <figcaption>MARIO / PORTRAIT 001</figcaption>
+          </figure>
+          <div class="talent-meta">
+            <p data-i18n="marioLine">Soft-luxury city life through a photographer's eye.</p>
+            <a class="profile-link" href="mario.html"><span data-i18n="viewProfile">View Profile</span><b aria-hidden="true">↗</b></a>
+          </div>
+          <p class="vertical-label">GTAI / DIGITAL HUMAN ARCHIVE</p>
+        </article>
+
+        <article class="talent-panel" data-index="1" style="--accent:#ff5038;--ink:#7d160c;" aria-hidden="true">
+          <div class="talent-index"><span>02</span><i></i><span>05</span></div>
+          <p class="talent-kicker">AI TALENT / FASHION / CITY CULTURE</p>
+          <h2 class="talent-name"><span>NO</span><em>AH</em></h2>
+          <figure class="talent-figure noah-figure">
+            <img data-src="assets/profiles/noah/cafe-portrait.png" alt="Noah seated in a warm cafe interior" loading="lazy" decoding="async">
+            <figcaption>NOAH / PORTRAIT 002</figcaption>
+          </figure>
+          <div class="talent-meta">
+            <p data-i18n="noahLine">Contemporary style with an understated cinematic edge.</p>
+            <a class="profile-link" href="noah.html"><span data-i18n="viewProfile">View Profile</span><b aria-hidden="true">↗</b></a>
+          </div>
+          <p class="vertical-label">GTAI / DIGITAL HUMAN ARCHIVE</p>
+        </article>
+
+        <article class="talent-panel" data-index="2" style="--accent:#ba77ff;--ink:#5b1d89;" aria-hidden="true">
+          <div class="talent-index"><span>03</span><i></i><span>05</span></div>
+          <p class="talent-kicker">AI TALENT / BEAUTY / WELLNESS</p>
+          <h2 class="talent-name ooona-name"><span>OOO</span><em>NA</em></h2>
+          <figure class="talent-figure ooona-figure">
+            <img data-src="assets/ooona-hero.png" alt="Ooona in a soft beauty portrait" loading="lazy" decoding="async">
+            <figcaption>OOONA / PORTRAIT 003</figcaption>
+          </figure>
+          <div class="talent-meta">
+            <p data-i18n="ooonaLine">Soft-focus beauty, wellness and a playful digital spirit.</p>
+            <a class="profile-link" href="ooona.html"><span data-i18n="viewProfile">View Profile</span><b aria-hidden="true">↗</b></a>
+          </div>
+          <p class="vertical-label">GTAI / DIGITAL HUMAN ARCHIVE</p>
+        </article>
+
+        <article class="talent-panel" data-index="3" style="--accent:#00a883;--ink:#005c48;" aria-hidden="true">
+          <div class="talent-index"><span>04</span><i></i><span>05</span></div>
+          <p class="talent-kicker">AI TALENT / MUSIC PRODUCER / FASHION</p>
+          <h2 class="talent-name"><span>AM</span><em>BER</em></h2>
+          <figure class="talent-figure amber-figure"><img data-src="assets/profiles/amber/denim-editorial.png" alt="Amber in an oversized denim editorial look" loading="lazy" decoding="async"><figcaption>AMBER / PORTRAIT 004</figcaption></figure>
+          <div class="talent-meta"><p>LA music, fashion and quiet creative power.</p><a class="profile-link" href="amber.html"><span data-i18n="viewProfile">View Profile</span><b aria-hidden="true">↗</b></a></div>
+          <p class="vertical-label">GTAI / DIGITAL HUMAN ARCHIVE</p>
+        </article>
+
+        <article class="talent-panel" data-index="4" style="--accent:#ffca0a;--ink:#685100;" aria-hidden="true">
+          <div class="talent-index"><span>05</span><i></i><span>05</span></div>
+          <p class="talent-kicker">AI TALENT / HIGH FASHION / ART</p>
+          <h2 class="talent-name"><span>MA</span><em>YA</em></h2>
+          <figure class="talent-figure maya-figure"><img data-src="assets/profiles/maya/pink-editorial.png" alt="Maya in a pink architectural editorial" loading="lazy" decoding="async"><figcaption>MAYA / PORTRAIT 005</figcaption></figure>
+          <div class="talent-meta"><p>Quiet luxury across art, architecture and high fashion.</p><a class="profile-link" href="maya.html"><span data-i18n="viewProfile">View Profile</span><b aria-hidden="true">↗</b></a></div>
+          <p class="vertical-label">GTAI / DIGITAL HUMAN ARCHIVE</p>
+        </article>
+      </div>
+
+      <nav class="carousel-controls" aria-label="Talent navigation">
+        <button id="prevTalent" type="button" aria-label="Previous talent"><span>←</span></button>
+        <p><span id="currentNumber">01</span> / 05</p>
+        <button id="nextTalent" type="button" aria-label="Next talent"><span>→</span></button>
+      </nav>
+      <p class="track-label" id="trackLabel">TRACK 01 / CRYSTAL STATIC</p>
+      </section>
+
+      <section class="information-stage services-stage" id="servicesStage" aria-labelledby="servicesTitle" aria-hidden="true" inert>
+        <div class="info-stage-inner">
+          <header class="info-stage-heading">
+            <p class="micro">GTAI / CAPABILITIES / 2026</p>
+            <h2 id="servicesTitle" data-i18n="servicesHeadline">Ideas become<br><em>living worlds.</em></h2>
+            <p data-i18n="servicesIntro">From AI film and digital humans to always-on social content, we unite creative direction, production and technology in one team.</p>
+          </header>
+          <div class="service-grid">
+            <article><span>01</span><h3>AI VIDEO<br>PRODUCTION</h3><p data-i18n="serviceVideo">Concept, art direction and AI-powered film production for campaigns and branded stories.</p></article>
+            <article><span>02</span><h3>DIGITAL HUMAN<br>CREATION</h3><p data-i18n="serviceHuman">Distinctive virtual personalities designed for long-term brand worlds, content and engagement.</p></article>
+            <article><span>03</span><h3>AI CAMPAIGN<br>&amp; SOCIAL</h3><p data-i18n="serviceSocial">Scalable creative systems for launch campaigns, social channels and continuous content.</p></article>
+            <article><span>04</span><h3>CUSTOM AI<br>INTEGRATION</h3><p data-i18n="serviceIntegration">Persona, voice, agentic tools and tailored software, hardware or data connections.</p></article>
+          </div>
+          <div class="proof-strip" aria-label="GreenTomato group credentials">
+            <p><strong>600+</strong><span data-i18n="clientsPartners">Clients &amp; partners</span></p>
+            <p><strong>1,500+</strong><span data-i18n="projectsDelivered">Projects delivered</span></p>
+            <p><strong>300+</strong><span data-i18n="professionals">Professionals</span></p>
+            <p><strong>100+</strong><span data-i18n="awards">Awards</span></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="information-stage work-stage" id="workStage" aria-labelledby="workTitle" aria-hidden="true" inert>
+        <div class="info-stage-inner">
+          <header class="info-stage-heading work-heading">
+            <p class="micro">SELECTED WORK / GT GROUP NETWORK</p>
+            <h2 id="workTitle" data-i18n="workHeadline">Built with brands.<br><em>Made for culture.</em></h2>
+            <p data-i18n="workIntro">A selection of brands and creative partnerships featured across the GreenTomato company portfolio.</p>
+          </header>
+          <div class="work-grid" aria-label="Selected brand work">
+            <article class="work-card work-card-featured">
+              <div class="work-media">
+                <video data-work-video muted playsinline preload="metadata" poster="assets/work/takoyaki-poster.jpg" aria-label="ChillGOOD x TV章魚燒 Takoyaki project video">
+                  <source src="assets/work/video/takoyaki.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="work-meta"><p><span>01</span><strong class="work-title-case">ChillGOOD x TV章魚燒 Takoyaki</strong></p><p>VIDEO / SELECTED WORK</p></div>
+            </article>
+            <article class="work-card">
+              <div class="work-media">
+                <video data-work-video muted playsinline preload="metadata" aria-label="八達通 Octopus AI production project video">
+                  <source src="assets/work/video/octopus.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="work-meta"><p><span>02</span><strong class="work-title-case">八達通Octopus</strong></p><p>VIDEO / SELECTED WORK</p></div>
+            </article>
+            <article class="work-card">
+              <div class="work-media">
+                <video data-work-video muted playsinline preload="metadata" poster="assets/work/mgm-01-poster.jpg" aria-label="MGM Spa project video 1">
+                  <source src="assets/work/video/mgm-01.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="work-meta"><p><span>03</span><strong>MGM 01</strong></p><p>VIDEO / SELECTED WORK</p></div>
+            </article>
+            <article class="work-card">
+              <div class="work-media">
+                <video data-work-video muted playsinline preload="metadata" poster="assets/work/mgm-02-poster.jpg" aria-label="MGM project video 2">
+                  <source src="assets/work/video/mgm-02.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="work-meta"><p><span>04</span><strong>MGM 02</strong></p><p>VIDEO / SELECTED WORK</p></div>
+            </article>
+            <article class="work-card">
+              <div class="work-media">
+                <video data-work-video muted playsinline preload="metadata" poster="assets/work/mgm-03-poster.jpg" aria-label="MGM project video 3">
+                  <source src="assets/work/video/mgm-03.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="work-meta"><p><span>05</span><strong>MGM 03</strong></p><p>VIDEO / SELECTED WORK</p></div>
+            </article>
+            <article class="work-card">
+              <div class="work-media">
+                <video data-work-video muted playsinline preload="metadata" aria-label="GRAMS 28 color project video">
+                  <source src="assets/work/video/grams-color.mp4?v=wjxeCDfunwg" type="video/mp4">
+                </video>
+              </div>
+              <div class="work-meta"><p><span>06</span><strong>GRAMS COLOR</strong></p><p>VIDEO / SELECTED WORK</p></div>
+            </article>
+            <article class="work-card">
+              <div class="work-media">
+                <video data-work-video muted playsinline preload="metadata" aria-label="GRAMS 28 black and white project video">
+                  <source src="assets/work/video/grams-bw.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="work-meta"><p><span>07</span><strong>GRAMS B&amp;W</strong></p><p>VIDEO / SELECTED WORK</p></div>
+            </article>
+            <article class="work-card">
+              <div class="work-media">
+                <video data-work-video muted playsinline preload="metadata" aria-label="Koisea Japanese Landscape project video">
+                  <source src="assets/work/video/koisea-landscape.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="work-meta"><p><span>08</span><strong>KOISEA 01</strong></p><p>VIDEO / SELECTED WORK</p></div>
+            </article>
+            <article class="work-card">
+              <div class="work-media">
+                <video data-work-video muted playsinline preload="metadata" aria-label="Koisea Underground Culture project video">
+                  <source src="assets/work/video/koisea-underground.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="work-meta"><p><span>09</span><strong>KOISEA 02</strong></p><p>VIDEO / SELECTED WORK</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="information-stage crew-stage" id="crewStage" aria-labelledby="crewTitle" aria-hidden="true" inert>
+        <div class="info-stage-inner crew-stage-inner">
+          <header class="info-stage-heading">
+            <p class="micro">GTAI / THE PEOPLE BEHIND THE WORK</p>
+            <h2 id="crewTitle" data-i18n="crewHeadline">Meet the crew.<br><em>Profiles coming next.</em></h2>
+            <p data-i18n="crewIntro">The crew directory is ready for approved names, roles, portraits and biographies.</p>
+          </header>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="app.js?v=20260723-3"></script>
+</body>
+</html>
