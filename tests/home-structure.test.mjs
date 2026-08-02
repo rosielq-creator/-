@@ -5,7 +5,7 @@ const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
 const css = readFileSync(new URL("../home-v4.css", import.meta.url), "utf8");
 const js = readFileSync(new URL("../home-v4.js", import.meta.url), "utf8");
 
-const order = ["class=\"hero\"", "class=\"manifesto\"", "class=\"artists\"", "class=\"work\"", "class=\"services\"", "class=\"contact\""];
+const order = ["class=\"hero\"", "class=\"manifesto\"", "class=\"artists\"", "class=\"brands\"", "class=\"work\"", "class=\"services\"", "class=\"contact\""];
 let cursor = -1;
 for (const marker of order) {
   const next = html.indexOf(marker);
@@ -34,5 +34,19 @@ assert.match(
 assert.doesNotMatch(html, /class="globe"/, "new Monolog hero ornament must be removed");
 assert.match(html, /class="manifesto"/, "the current manifesto must remain");
 assert.match(html, /class="artist-stage"/, "the current artist stage must remain");
+
+assert.equal((html.match(/class="brand-logo"/g) || []).length, 7, "expected seven static brand logos");
+for (const brand of [
+  "PARKnSHOP Hong Kong",
+  "MGM Macau",
+  "Octopus Hong Kong",
+  "The Peninsula Hong Kong",
+  "ChillGood TV",
+  "Asia Allied Infrastructure",
+  "Chow Sang Sang",
+]) {
+  assert.match(html, new RegExp(`aria-label="${brand}"`), `expected an accessible ${brand} logo`);
+}
+assert.match(css, /\.brand-logo img\{[^}]*filter:grayscale\(1\)/, "brand artwork must use one monochrome treatment");
 
 console.log("home structural contract passed");
