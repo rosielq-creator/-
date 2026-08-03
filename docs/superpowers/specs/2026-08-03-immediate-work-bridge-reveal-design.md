@@ -10,6 +10,7 @@ Remove the empty black pause between Artists and the work-bridge slogan. As soon
 - The mask begins moving at progress `0` and covers from bottom to top.
 - Letter reveal begins once the mask has covered roughly 10% of the viewport; there is no fully black hold before the text appears.
 - Letters rise from below their clipped line boxes with a small per-letter stagger, but the stagger is derived from scroll progress rather than a time-based animation.
+- Render `SEE WHAT WE MAKE POSSIBLE.` as one responsive line in white only. Reduce its size enough to remain on one line without green emphasis.
 - The completed slogan remains readable briefly before the brand-logo section enters.
 - Existing section order remains Artists → slogan bridge → brand logos → Work.
 
@@ -27,6 +28,7 @@ Normalize every brand mark to a monochrome, background-free presentation. Brand 
 - No viewport-length or visually noticeable pure-black frame occurs.
 - Reversing scroll reverses both effects smoothly.
 - Desktop and mobile preserve the same narrative timing.
+- The complete slogan remains one white line without green text on supported desktop and mobile widths.
 - No artist sequence number is visible on desktop or mobile.
 - Every brand logo appears black-and-white with no visible asset or tile background.
 - Existing homepage structure tests pass, with a new assertion covering the synchronized reveal contract.
