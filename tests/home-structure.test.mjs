@@ -73,9 +73,11 @@ assert.match(css, /prefers-reduced-motion:reduce/, "motion must have a reduced-m
 
 const workSection = html.slice(html.indexOf('class="work"'), html.indexOf('class="services"'));
 assert.equal((workSection.match(/class="work-row/g) || []).length, 4, "homepage must preview exactly four work stories");
-assert.equal((workSection.match(/class="work-row work-row-reverse"/g) || []).length, 2, "two work stories must reverse media and copy for an alternating editorial rhythm");
+assert.equal((workSection.match(/work-row-reverse/g) || []).length, 0, "every work story must keep media left and copy right like the reference");
 assert.match(workSection, /class="work-copy"/, "work stories must use a dedicated editorial copy column");
 assert.match(workSection, /VIEW MORE WORK/, "work section must lead to the complete project archive");
-assert.match(css, /\.work-row-reverse \.work-media/s, "desktop work layout must reverse alternating stories");
+for (const row of workSection.matchAll(/<article class="work-row">([\s\S]*?)<\/article>/g)) {
+  assert.ok(row[1].indexOf('class="work-media"') < row[1].indexOf('class="work-copy"'), "work media must precede its copy in every row");
+}
 
 console.log("home structural contract passed");
