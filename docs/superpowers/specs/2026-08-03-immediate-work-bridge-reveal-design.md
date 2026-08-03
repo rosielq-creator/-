@@ -19,6 +19,8 @@ Keep the current static homepage structure. Adjust only the bridge markup/styles
 
 Remove all visible artist sequence numbers (`01`–`05`) from the Artists section while preserving artist names, imagery, descriptors, links, and scroll behavior.
 
+Normalize every brand mark to a monochrome, background-free presentation. Brand tiles must not introduce white rectangles, colored fills, or card backgrounds; only the logo artwork remains visible against the section background.
+
 ## Acceptance criteria
 
 - The first downward scroll after Artists immediately reveals black mask motion and rising slogan letters.
@@ -26,4 +28,5 @@ Remove all visible artist sequence numbers (`01`–`05`) from the Artists sectio
 - Reversing scroll reverses both effects smoothly.
 - Desktop and mobile preserve the same narrative timing.
 - No artist sequence number is visible on desktop or mobile.
+- Every brand logo appears black-and-white with no visible asset or tile background.
 - Existing homepage structure tests pass, with a new assertion covering the synchronized reveal contract.
