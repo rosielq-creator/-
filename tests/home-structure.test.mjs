@@ -69,6 +69,7 @@ assert.match(css, /perspective:/, "artist rail must establish 3D perspective");
 assert.match(css, /-webkit-text-stroke:/, "bridge slogan must use outlined typography");
 assert.match(css, /\.bridge-sheen/, "bridge slogan must include the silver sheen treatment");
 assert.doesNotMatch(css, /\.brand-logo-(?:parknshop|peninsula|chow)[^{]*\{[^}]*background\s*:/s, "brand logos must not have colored tile backgrounds");
+assert.match(css, /\.brand-logo-mgm img\{[^}]*height:110px/s, "MGM mark must be large enough for the complete Chinese wordmark to remain legible");
 assert.match(css, /prefers-reduced-motion:reduce/, "motion must have a reduced-motion fallback");
 
 const workSection = html.slice(html.indexOf('class="work"'), html.indexOf('class="services"'));

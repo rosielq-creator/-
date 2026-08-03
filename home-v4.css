@@ -176,6 +176,7 @@ footer{padding:70px 18px 20px;border-top:1px solid var(--line)}.footer-links{wid
   .brand-logo:last-child img{width:72%}
 }
 .brands .brand-logo{background:transparent}.brand-logo-parknshop img{width:100%;height:140px}.brand-logo-peninsula{overflow:hidden}.brand-logo-peninsula img{width:100%;height:190px}.brand-logo-chow img{width:min(68%,240px)!important;height:140px}
+.brand-logo-mgm img{height:110px}
 @media(max-width:760px){.artist-stage{grid-template-columns:1fr 1fr;grid-template-rows:auto minmax(0,58vh) auto auto}.artist-rail{grid-column:1/-1;grid-row:2;width:100%;height:54vh;perspective:850px}.artist-card{width:70vw}.artist-name-block{grid-row:3}.artist-side{grid-row:1}.work-bridge{height:170svh}.work-bridge .bridge-slogan{font-size:clamp(18px,5.6vw,30px);letter-spacing:-.04em}.bridge-kicker{width:80%;text-align:center;line-height:1.4}.brand-bridge{padding:85px 14px 100px}.brand-bridge>h2{margin-bottom:55px}.brand-logos{grid-template-columns:1fr}.brand-logo{min-height:32vh}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}.artist-card{transform:translate3d(-50%,0,0)!important;opacity:0!important;filter:none!important}.artist-card.is-active{opacity:1!important}.work-bridge{height:100svh}.bridge-mask{transform:none!important}.work-bridge .bridge-slogan{transform:none!important;filter:none!important;opacity:1!important}.bridge-sheen{background-position-x:45%!important}.bridge-kicker{opacity:1!important;transform:none!important}}
 
