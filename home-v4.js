@@ -57,7 +57,7 @@ function syncWorkBridge(){
   if(!workBridge)return;
   const bounds=workBridge.getBoundingClientRect();
   const travel=Math.max(1,workBridge.offsetHeight-innerHeight);
-  const progress=Math.max(0,Math.min(1,(innerHeight-bounds.top)/(travel+innerHeight)));
+  const progress=Math.max(0,Math.min(1,-bounds.top/travel));
   workBridge.style.setProperty("--bridge-progress",progress.toFixed(4));
 }
 function requestBridgeSync(){if(!bridgeFrame)bridgeFrame=requestAnimationFrame(syncWorkBridge)}

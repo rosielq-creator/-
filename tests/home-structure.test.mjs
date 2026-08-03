@@ -23,6 +23,8 @@ assert.match(html, /rel="icon"/, "expected an explicit favicon to avoid a missin
 assert.match(html, /SEE WHAT WE MAKE POSSIBLE\./, "expected approved work-transition slogan");
 const artistSection = html.slice(html.indexOf('class="artists"'), html.indexOf('class="work-bridge"'));
 assert.doesNotMatch(artistSection, /<span>0[1-5]<\/span>/, "artist numbers 01–05 must not be visible");
+assert.match(artistSection, /class="artist-archive-link"[^>]*href="artists\.html"/, "artist section must lead to the complete roster");
+assert.match(artistSection, /VIEW ALL ARTISTS/, "artist archive link must clearly invite discovery");
 assert.match(html, /class="bridge-mask"/, "expected the immediate rising bridge mask");
 assert.match(html, /class="bridge-slogan"[^>]*>SEE WHAT WE MAKE POSSIBLE\.<span class="bridge-sheen"/, "expected one-line slogan with sheen layer");
 assert.match(html, /assets\/brands\/parknshop\.svg/, "expected transparent ParknShop logo");
@@ -60,11 +62,19 @@ assert.match(js, /--artist-progress/, "artist rail must expose normalized progre
 assert.match(js, /--bridge-progress/, "work bridge must expose normalized progress to CSS");
 assert.doesNotMatch(js, /--bridge-(?:mask|text)-progress/, "cover and slogan must not use separate delayed progress values");
 assert.match(css, /\.bridge-mask\{[^}]*var\(--bridge-progress\)/s, "bridge cover must follow the shared progress value");
+assert.match(css, /\.work-bridge\{[^}]*margin-top:-100svh/s, "bridge must overlap the final artist viewport so the cover is visible");
 assert.match(css, /\.work-bridge \.bridge-slogan\{[^}]*var\(--bridge-progress\)/s, "bridge slogan must follow the same shared progress value");
 assert.match(css, /perspective:/, "artist rail must establish 3D perspective");
 assert.match(css, /-webkit-text-stroke:/, "bridge slogan must use outlined typography");
 assert.match(css, /\.bridge-sheen/, "bridge slogan must include the silver sheen treatment");
 assert.doesNotMatch(css, /\.brand-logo-(?:parknshop|peninsula|chow)[^{]*\{[^}]*background\s*:/s, "brand logos must not have colored tile backgrounds");
 assert.match(css, /prefers-reduced-motion:reduce/, "motion must have a reduced-motion fallback");
+
+const workSection = html.slice(html.indexOf('class="work"'), html.indexOf('class="services"'));
+assert.equal((workSection.match(/class="work-row/g) || []).length, 4, "homepage must preview exactly four work stories");
+assert.equal((workSection.match(/class="work-row work-row-reverse"/g) || []).length, 2, "two work stories must reverse media and copy for an alternating editorial rhythm");
+assert.match(workSection, /class="work-copy"/, "work stories must use a dedicated editorial copy column");
+assert.match(workSection, /VIEW MORE WORK/, "work section must lead to the complete project archive");
+assert.match(css, /\.work-row-reverse \.work-media/s, "desktop work layout must reverse alternating stories");
 
 console.log("home structural contract passed");
