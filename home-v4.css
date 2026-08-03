@@ -222,3 +222,4 @@ footer{padding:70px 18px 20px;border-top:1px solid var(--line)}.footer-links{wid
 }
 
 @media(prefers-reduced-motion:reduce){.work-bridge{margin-top:0}}
+.work-row:hover .work-media,.work-row:focus-within .work-media{transform:none!important}

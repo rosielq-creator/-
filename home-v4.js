@@ -73,6 +73,8 @@ if(manifestoLines.length){
   manifestoLines.forEach(line=>lineObserver.observe(line));
 }
 
+const workVideos=[...document.querySelectorAll(".work-media video")];
+workVideos.forEach(video=>{video.controls=true});
 const videos=[...document.querySelectorAll("video")];
 const videoObserver=new IntersectionObserver(entries=>entries.forEach(entry=>entry.isIntersecting?entry.target.play().catch(()=>{}):entry.target.pause()),{threshold:.4});
 videos.forEach(video=>videoObserver.observe(video));

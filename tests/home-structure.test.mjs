@@ -89,5 +89,7 @@ assert.match(css, /\.work-description p\{[^}]*font-size:clamp\(15px,1\.2vw,17\.5
 assert.doesNotMatch(js, /--work-jelly|settleWorkJelly|nudgeWorkJelly/, "work scrolling must never translate the whole editorial rail");
 assert.doesNotMatch(css, /\.work-index\{[^}]*transform:/s, "the work index must remain locked to the layout frame");
 assert.doesNotMatch(css, /\.work-row[^}]*animation:/s, "work rows must not use elastic animation");
+assert.match(css, /\.work-row:hover \.work-media,\.work-row:focus-within \.work-media\{[^}]*transform:none!important/s, "hovering work media must never move the video frame");
+assert.match(js, /querySelectorAll\("\.work-media video"\)[\s\S]*video\.controls=true/s, "every homepage work video must expose playback controls");
 
 console.log("home structural contract passed");
