@@ -17,10 +17,13 @@ Remove the empty black pause between Artists and the work-bridge slogan. As soon
 
 Keep the current static homepage structure. Adjust only the bridge markup/styles/progress mapping required to synchronize the mask and letters. Preserve GPU-friendly transform/clip-path animation and the existing `prefers-reduced-motion` fallback.
 
+Remove all visible artist sequence numbers (`01`–`05`) from the Artists section while preserving artist names, imagery, descriptors, links, and scroll behavior.
+
 ## Acceptance criteria
 
 - The first downward scroll after Artists immediately reveals black mask motion and rising slogan letters.
 - No viewport-length or visually noticeable pure-black frame occurs.
 - Reversing scroll reverses both effects smoothly.
 - Desktop and mobile preserve the same narrative timing.
+- No artist sequence number is visible on desktop or mobile.
 - Existing homepage structure tests pass, with a new assertion covering the synchronized reveal contract.
