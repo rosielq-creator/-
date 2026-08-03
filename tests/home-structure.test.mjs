@@ -82,5 +82,9 @@ for (const row of workSection.matchAll(/<article class="work-row">([\s\S]*?)<\/a
 assert.match(css, /\.work-row\{[^}]*grid-template-columns:minmax\(0,58fr\) minmax\(0,42fr\)/s, "desktop work rows must use the reference 58/42 media-copy ratio");
 assert.match(css, /\.work-row \.work-media\{[^}]*aspect-ratio:3\/2/s, "work media must use the reference 3:2 ratio");
 assert.match(css, /\.work-copy h3\{[^}]*font-size:16px/s, "work story titles must use the compact reference scale");
+assert.match(js, /setProperty\("--work-jelly"/, "work scrolling must expose a damped jelly offset to CSS");
+assert.match(js, /Math\.max\(-12,Math\.min\(12/, "work jelly motion must stay within a restrained 12px range");
+assert.match(css, /\.work-index\{[^}]*var\(--work-jelly,0\)/s, "the work index must consume the jelly offset");
+assert.match(css, /@media\(prefers-reduced-motion:reduce\)[\s\S]*\.work-index\{transform:none!important/, "reduced motion must disable work jelly translation");
 
 console.log("home structural contract passed");
