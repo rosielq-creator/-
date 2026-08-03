@@ -27,7 +27,8 @@ assert.match(artistSection, /class="artist-archive-link"[^>]*href="artists\.html
 assert.match(artistSection, /VIEW ALL ARTISTS/, "artist archive link must clearly invite discovery");
 assert.match(html, /class="bridge-mask"/, "expected the immediate rising bridge mask");
 assert.match(html, /class="bridge-slogan"[^>]*>SEE WHAT WE MAKE POSSIBLE\.<span class="bridge-sheen"/, "expected one-line slogan with sheen layer");
-assert.match(html, /assets\/brands\/parknshop\.svg/, "expected transparent ParknShop logo");
+assert.match(html, /assets\/brands\/parknshop-white\.png/, "expected supplied transparent ParknShop logo");
+assert.match(html, /assets\/brands\/mgm-macau-white\.png/, "expected supplied transparent MGM Macau logo");
 assert.match(html, /assets\/brands\/the-peninsula-hong-kong\.svg/, "expected transparent Peninsula wordmark");
 assert.match(html, /assets\/brands\/chow-sang-sang\.svg/, "expected transparent Chow Sang Sang logo");
 assert.doesNotMatch(css, /scroll-snap-type\s*:/, "homepage must not use scroll snapping");
