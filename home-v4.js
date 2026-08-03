@@ -81,28 +81,6 @@ const canvas=document.querySelector("#mineralCanvas"),ctx=canvas?.getContext("2d
 let width=0,height=0,frame=0,visible=true;
 const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const workIndex=document.querySelector(".work-index");
-let lastScrollY=scrollY,workJelly=0,workJellyFrame=0;
-function settleWorkJelly(){
-  workJelly*=.82;
-  if(Math.abs(workJelly)<.05){
-    workJelly=0;
-    workJellyFrame=0;
-  }
-  workIndex?.style.setProperty("--work-jelly",workJelly.toFixed(3));
-  if(workJellyFrame)workJellyFrame=requestAnimationFrame(settleWorkJelly);
-}
-function nudgeWorkJelly(){
-  const delta=scrollY-lastScrollY;
-  lastScrollY=scrollY;
-  if(!workIndex||reduced)return;
-  const bounds=workIndex.getBoundingClientRect();
-  if(bounds.bottom<=0||bounds.top>=innerHeight)return;
-  workJelly=Math.max(-12,Math.min(12,workJelly+delta*.18));
-  if(!workJellyFrame)workJellyFrame=requestAnimationFrame(settleWorkJelly);
-}
-if(workIndex)addEventListener("scroll",nudgeWorkJelly,{passive:true});
-
 function resizeCanvas(){const ratio=Math.min(devicePixelRatio,1.5);width=canvas.width=innerWidth*ratio;height=canvas.height=innerHeight*ratio}
 function ribbon(time,index){const t=time*.0005,center=height*(.16+index*.145),amp=height*(.06+index*.008),thick=height*(.08+index*.01),gradient=ctx.createLinearGradient(0,center,width,center);gradient.addColorStop(0,"rgba(55,65,53,.12)");gradient.addColorStop(.5,"rgba(190,193,182,.22)");gradient.addColorStop(1,"rgba(42,48,41,.1)");ctx.beginPath();for(let x=-width*.1;x<=width*1.1;x+=width/24){const y=center+Math.sin(x/width*5+t+index)*amp;if(x<0)ctx.moveTo(x,y-thick);else ctx.lineTo(x,y-thick)}for(let x=width*1.1;x>=-width*.1;x-=width/24){const y=center+Math.sin(x/width*5+t+index)*amp;ctx.lineTo(x,y+thick)}ctx.closePath();ctx.fillStyle=gradient;ctx.fill()}
 function draw(time){if(!visible){frame=0;return}ctx.clearRect(0,0,width,height);ctx.globalCompositeOperation="screen";for(let i=0;i<6;i++)ribbon(time,i);ctx.globalCompositeOperation="source-over";frame=requestAnimationFrame(draw)}
