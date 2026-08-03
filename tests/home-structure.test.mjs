@@ -21,9 +21,13 @@ assert.match(html, /data-artist-stage/, "expected a single artist stage");
 assert.match(html, /class="manifesto-line"/, "expected editorial manifesto lines");
 assert.match(html, /rel="icon"/, "expected an explicit favicon to avoid a missing browser asset");
 assert.match(html, /SEE WHAT WE MAKE POSSIBLE\./, "expected approved work-transition slogan");
-assert.match(html, /assets\/brands\/parknshop\.png/, "expected supplied ParknShop logo");
-assert.match(html, /assets\/brands\/peninsula\.png/, "expected supplied Peninsula wordmark");
-assert.match(html, /assets\/brands\/chow-sang-sang\.jpg/, "expected supplied Chow Sang Sang logo");
+const artistSection = html.slice(html.indexOf('class="artists"'), html.indexOf('class="work-bridge"'));
+assert.doesNotMatch(artistSection, /<span>0[1-5]<\/span>/, "artist numbers 01–05 must not be visible");
+assert.match(html, /class="bridge-mask"/, "expected the immediate rising bridge mask");
+assert.match(html, /class="bridge-slogan"[^>]*>SEE WHAT WE MAKE POSSIBLE\.<span class="bridge-sheen"/, "expected one-line slogan with sheen layer");
+assert.match(html, /assets\/brands\/parknshop\.svg/, "expected transparent ParknShop logo");
+assert.match(html, /assets\/brands\/the-peninsula-hong-kong\.svg/, "expected transparent Peninsula wordmark");
+assert.match(html, /assets\/brands\/chow-sang-sang\.svg/, "expected transparent Chow Sang Sang logo");
 assert.doesNotMatch(css, /scroll-snap-type\s*:/, "homepage must not use scroll snapping");
 assert.match(
   html,
@@ -54,7 +58,12 @@ for (const brand of [
 assert.match(js, /syncArtistRail/, "artist rail must follow continuous scroll progress");
 assert.match(js, /--artist-progress/, "artist rail must expose normalized progress to CSS");
 assert.match(js, /--bridge-progress/, "work bridge must expose normalized progress to CSS");
+assert.match(js, /--bridge-mask-progress/, "work bridge must expose immediate mask progress");
+assert.match(js, /--bridge-text-progress/, "work bridge must expose synchronized text progress");
 assert.match(css, /perspective:/, "artist rail must establish 3D perspective");
+assert.match(css, /-webkit-text-stroke:/, "bridge slogan must use outlined typography");
+assert.match(css, /\.bridge-sheen/, "bridge slogan must include the silver sheen treatment");
+assert.doesNotMatch(css, /\.brand-logo-(?:parknshop|peninsula|chow)[^{]*\{[^}]*background\s*:/s, "brand logos must not have colored tile backgrounds");
 assert.match(css, /prefers-reduced-motion:reduce/, "motion must have a reduced-motion fallback");
 
 console.log("home structural contract passed");

@@ -57,8 +57,12 @@ function syncWorkBridge(){
   if(!workBridge)return;
   const bounds=workBridge.getBoundingClientRect();
   const travel=Math.max(1,workBridge.offsetHeight-innerHeight);
-  const progress=Math.max(0,Math.min(1,-bounds.top/travel));
+  const progress=Math.max(0,Math.min(1,(innerHeight-bounds.top)/(travel+innerHeight)));
+  const maskProgress=Math.max(0,Math.min(1,progress*1.35));
+  const textProgress=Math.max(0,Math.min(1,progress*1.5));
   workBridge.style.setProperty("--bridge-progress",progress.toFixed(4));
+  workBridge.style.setProperty("--bridge-mask-progress",maskProgress.toFixed(4));
+  workBridge.style.setProperty("--bridge-text-progress",textProgress.toFixed(4));
 }
 function requestBridgeSync(){if(!bridgeFrame)bridgeFrame=requestAnimationFrame(syncWorkBridge)}
 if(workBridge){
