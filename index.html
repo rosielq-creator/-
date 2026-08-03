@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#090909">
   <title>Greentomato | AI Production & Artists</title>
   <link rel="icon" href="v2-preview/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="home-v4.css?v=20260731-2">
+  <link rel="stylesheet" href="home-v4.css?v=20260803-2">
   <link rel="stylesheet" href="typography.css?v=20260730-5">
 </head>
 <body>
@@ -68,10 +68,13 @@
             <span>Discipline</span>
             <strong data-artist-left>LUXURY / FASHION</strong>
           </div>
-          <a class="artist-portrait" data-artist-link href="maya.html">
-            <img data-artist-image src="assets/profiles/maya/pink-editorial.png" alt="Maya">
-            <span class="artist-index"><b data-artist-index>01</b> / 05</span>
-          </a>
+          <div class="artist-rail" data-artist-rail aria-label="Featured artists">
+            <a class="artist-card is-active" data-artist-card="0" href="maya.html" style="--card-index:0"><img src="assets/profiles/maya/pink-editorial.png" alt="Maya"><span>01</span></a>
+            <a class="artist-card" data-artist-card="1" href="amber.html" style="--card-index:1"><img src="assets/profiles/amber/night-portrait.png" alt="Amber"><span>02</span></a>
+            <a class="artist-card" data-artist-card="2" href="ooona.html" style="--card-index:2"><img src="assets/profiles/ooona/hero.png" alt="Ooona"><span>03</span></a>
+            <a class="artist-card" data-artist-card="3" href="noah.html" style="--card-index:3"><img src="assets/profiles/noah/black-portrait.png" alt="Noah"><span>04</span></a>
+            <a class="artist-card" data-artist-card="4" href="mario.html" style="--card-index:4"><img src="assets/mario-portrait.png" alt="Mario"><span>05</span></a>
+          </div>
           <div class="artist-side artist-side-right">
             <span>World</span>
             <strong data-artist-right>ART / EDITORIAL</strong>
@@ -79,7 +82,7 @@
           <div class="artist-name-block">
             <p>GREENTOMATO ARTIST</p>
             <h3 data-artist-name>Maya</h3>
-            <a data-artist-link-text href="maya.html">View artist ↗</a>
+            <a data-artist-link href="maya.html">View artist ↗</a>
           </div>
           <div class="artist-progress" aria-hidden="true"><i data-artist-progress></i></div>
         </div>
@@ -93,19 +96,28 @@
       </div>
     </section>
 
+    <section class="work-bridge" data-work-bridge aria-label="SEE WHAT WE MAKE POSSIBLE.">
+      <div class="work-bridge-sticky">
+        <p class="bridge-kicker">ARTISTS INTO ACTION · STORIES INTO CULTURE</p>
+        <h2 aria-hidden="true"><span>SEE WHAT WE</span><span>MAKE POSSIBLE.</span></h2>
+        <p class="sr-only">See what we make possible.</p>
+        <div class="bridge-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+    </section>
+
     <section class="brands" aria-labelledby="brands-title">
       <header class="brands-head">
         <p>03 / BRAND PARTNERS</p>
         <h2 id="brands-title">Brands we’ve<br>worked with.</h2>
       </header>
       <div class="brand-grid" aria-label="Selected brand partners">
-        <figure class="brand-logo" aria-label="PARKnSHOP Hong Kong"><img src="assets/brands/parknshop.svg" alt="PARKnSHOP Hong Kong logo"></figure>
+        <figure class="brand-logo brand-logo-parknshop" aria-label="PARKnSHOP Hong Kong"><img src="assets/brands/parknshop.png" alt="PARKnSHOP Hong Kong logo"></figure>
         <figure class="brand-logo" aria-label="MGM Macau"><img src="assets/brands/mgm-macau.svg" alt="MGM Macau logo"></figure>
         <figure class="brand-logo" aria-label="Octopus Hong Kong"><img src="assets/brands/octopus-hong-kong.svg" alt="Octopus Hong Kong logo"></figure>
-        <figure class="brand-logo" aria-label="The Peninsula Hong Kong"><img src="assets/brands/the-peninsula-hong-kong.svg" alt="The Peninsula Hong Kong logo"></figure>
+        <figure class="brand-logo brand-logo-peninsula" aria-label="The Peninsula Hong Kong"><img src="assets/brands/peninsula.png" alt="The Peninsula Hong Kong wordmark"></figure>
         <figure class="brand-logo" aria-label="ChillGood TV"><img src="assets/brands/chillgood-tv.svg" alt="ChillGood TV logo"></figure>
         <figure class="brand-logo" aria-label="Asia Allied Infrastructure"><img src="assets/brands/asia-allied-infrastructure.svg" alt="Asia Allied Infrastructure logo"></figure>
-        <figure class="brand-logo" aria-label="Chow Sang Sang"><img src="assets/brands/chow-sang-sang.svg" alt="Chow Sang Sang logo"></figure>
+        <figure class="brand-logo brand-logo-chow" aria-label="Chow Sang Sang"><img src="assets/brands/chow-sang-sang.jpg" alt="Chow Sang Sang logo"></figure>
       </div>
     </section>
 
@@ -144,6 +156,6 @@
     <div class="footer-links"><a href="#about">About</a><a href="#artists">Artists</a><a href="#work">Work</a><a href="#services">Services</a><a href="#contact">Contact</a></div>
     <div class="footer-meta"><span class="official-logo" role="img" aria-label="Greentomato"></span><p>hello@gtomato.com<br>Hong Kong / Global</p><p>© 2026 Greentomato<br>All rights reserved.</p></div>
   </footer>
-  <script src="home-v4.js?v=20260731-1"></script>
+  <script src="home-v4.js?v=20260803-2"></script>
 </body>
 </html>

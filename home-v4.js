@@ -10,54 +10,61 @@ const header=document.querySelector("[data-header]");
 const syncHeader=()=>header?.classList.toggle("is-scrolled",scrollY>24);
 addEventListener("scroll",syncHeader,{passive:true});syncHeader();
 
-const stage=document.querySelector("[data-artist-stage]");
 const triggers=[...document.querySelectorAll("[data-artist-trigger]")];
-let currentArtist=0,swapTimer;
+const artistScroll=document.querySelector(".artist-scroll");
+const artistCards=[...document.querySelectorAll("[data-artist-card]")];
+let currentArtist=-1,artistFrame=0;
 function showArtist(index){
-  if(index===currentArtist&&stage?.dataset.ready)return;
+  if(index===currentArtist)return;
   currentArtist=index;
-  const artist=artists[index],portrait=document.querySelector(".artist-portrait"),image=document.querySelector("[data-artist-image]");
-  portrait?.classList.add("is-changing");
-  clearTimeout(swapTimer);
-  swapTimer=setTimeout(()=>{
-    image.src=artist.image;image.alt=artist.name;
-    document.querySelector("[data-artist-name]").textContent=artist.name;
-    document.querySelector("[data-artist-left]").textContent=artist.left;
-    document.querySelector("[data-artist-right]").textContent=artist.right;
-    document.querySelector("[data-artist-index]").textContent=String(index+1).padStart(2,"0");
-    document.querySelector("[data-artist-link]").href=artist.href;
-    document.querySelector("[data-artist-link-text]").href=artist.href;
-    document.querySelector("[data-artist-progress]").style.transform=`scaleX(${(index+1)/artists.length})`;
-    triggers.forEach((trigger,i)=>trigger.classList.toggle("is-active",i===index));
-    portrait?.classList.remove("is-changing");
-    if(stage)stage.dataset.ready="true";
-  },150);
+  const artist=artists[index];
+  document.querySelector("[data-artist-name]").textContent=artist.name;
+  document.querySelector("[data-artist-left]").textContent=artist.left;
+  document.querySelector("[data-artist-right]").textContent=artist.right;
+  document.querySelector("[data-artist-link]").href=artist.href;
+  triggers.forEach((trigger,i)=>trigger.classList.toggle("is-active",i===index));
+  artistCards.forEach((card,i)=>card.classList.toggle("is-active",i===index));
 }
-triggers.forEach((trigger,index)=>{
-  trigger.addEventListener("click",()=>showArtist(index));
-  trigger.addEventListener("focus",()=>showArtist(index));
-});
+function syncArtistRail(){
+  artistFrame=0;
+  if(!artistScroll)return;
+  const bounds=artistScroll.getBoundingClientRect();
+  const travel=Math.max(1,artistScroll.offsetHeight-innerHeight);
+  const progress=Math.max(0,Math.min(artists.length-1,-bounds.top/travel*(artists.length-1)));
+  artistScroll.style.setProperty("--artist-progress",progress.toFixed(4));
+  artistCards.forEach((card,index)=>{
+    const distance=index-progress,depth=Math.abs(distance);
+    card.style.transform=`translate3d(calc(-50% + ${distance*30}%),0,${depth*-190}px) rotateY(${distance*-12}deg) scale(${Math.max(.68,1-depth*.12)})`;
+    card.style.opacity=String(Math.max(.12,1-depth*.32));
+    card.style.filter=`brightness(${Math.max(.46,1-depth*.18)}) saturate(.86)`;
+    card.style.zIndex=String(Math.round(10-depth*2));
+  });
+  document.querySelector("[data-artist-progress]").style.transform=`scaleX(${(progress+1)/artists.length})`;
+  showArtist(Math.round(progress));
+}
+function requestArtistSync(){if(!artistFrame)artistFrame=requestAnimationFrame(syncArtistRail)}
+triggers.forEach((trigger,index)=>trigger.addEventListener("focus",()=>showArtist(index)));
 if(triggers.length){
-  let artistFrame=0;
-  const closestArtistToViewportCenter=()=>{
-    artistFrame=0;
-    const viewportCenter=innerHeight/2;
-    const closest=triggers.reduce((best,trigger)=>{
-      const bounds=trigger.getBoundingClientRect();
-      const distance=Math.abs(bounds.top+bounds.height/2-viewportCenter);
-      return !best||distance<best.distance?{trigger,distance}:best;
-    },null);
-    if(closest&&closest.distance<innerHeight*1.15){
-      showArtist(Number(closest.trigger.dataset.artistTrigger));
-    }
-  };
-  const requestArtistSync=()=>{
-    if(!artistFrame)artistFrame=requestAnimationFrame(closestArtistToViewportCenter);
-  };
   addEventListener("scroll",requestArtistSync,{passive:true});
   addEventListener("resize",requestArtistSync,{passive:true});
-  showArtist(0);
-  closestArtistToViewportCenter();
+  syncArtistRail();
+}
+
+const workBridge=document.querySelector("[data-work-bridge]");
+let bridgeFrame=0;
+function syncWorkBridge(){
+  bridgeFrame=0;
+  if(!workBridge)return;
+  const bounds=workBridge.getBoundingClientRect();
+  const travel=Math.max(1,workBridge.offsetHeight-innerHeight);
+  const progress=Math.max(0,Math.min(1,-bounds.top/travel));
+  workBridge.style.setProperty("--bridge-progress",progress.toFixed(4));
+}
+function requestBridgeSync(){if(!bridgeFrame)bridgeFrame=requestAnimationFrame(syncWorkBridge)}
+if(workBridge){
+  addEventListener("scroll",requestBridgeSync,{passive:true});
+  addEventListener("resize",requestBridgeSync,{passive:true});
+  syncWorkBridge();
 }
 
 const manifestoLines=[...document.querySelectorAll(".manifesto-line")];

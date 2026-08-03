@@ -5,7 +5,7 @@ const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
 const css = readFileSync(new URL("../home-v4.css", import.meta.url), "utf8");
 const js = readFileSync(new URL("../home-v4.js", import.meta.url), "utf8");
 
-const order = ["class=\"hero\"", "class=\"manifesto\"", "class=\"artists\"", "class=\"brands\"", "class=\"work\"", "class=\"services\"", "class=\"contact\""];
+const order = ["class=\"hero\"", "class=\"manifesto\"", "class=\"artists\"", "class=\"work-bridge\"", "class=\"brands\"", "class=\"work\"", "class=\"services\"", "class=\"contact\""];
 let cursor = -1;
 for (const marker of order) {
   const next = html.indexOf(marker);
@@ -14,13 +14,17 @@ for (const marker of order) {
 }
 
 assert.equal((html.match(/data-artist-trigger=/g) || []).length, 5, "expected five artist scroll triggers");
+assert.equal((html.match(/class=\"artist-card/g) || []).length, 5, "expected five persistent artist cards in the 3D rail");
 assert.match(html, /data-artist-left/, "expected left artist classification");
 assert.match(html, /data-artist-right/, "expected right artist classification");
 assert.match(html, /data-artist-stage/, "expected a single artist stage");
 assert.match(html, /class="manifesto-line"/, "expected editorial manifesto lines");
 assert.match(html, /rel="icon"/, "expected an explicit favicon to avoid a missing browser asset");
+assert.match(html, /SEE WHAT WE MAKE POSSIBLE\./, "expected approved work-transition slogan");
+assert.match(html, /assets\/brands\/parknshop\.png/, "expected supplied ParknShop logo");
+assert.match(html, /assets\/brands\/peninsula\.png/, "expected supplied Peninsula wordmark");
+assert.match(html, /assets\/brands\/chow-sang-sang\.jpg/, "expected supplied Chow Sang Sang logo");
 assert.doesNotMatch(css, /scroll-snap-type\s*:/, "homepage must not use scroll snapping");
-assert.match(js, /closestArtistToViewportCenter/, "artist selection must follow the trigger nearest the viewport center");
 assert.match(
   html,
   /<h1 id="hero-title">We build next-generation<br>artists with identities,<br>voices and worlds\.<\/h1>/,
@@ -35,7 +39,7 @@ assert.doesNotMatch(html, /class="globe"/, "new Monolog hero ornament must be re
 assert.match(html, /class="manifesto"/, "the current manifesto must remain");
 assert.match(html, /class="artist-stage"/, "the current artist stage must remain");
 
-assert.equal((html.match(/class="brand-logo"/g) || []).length, 7, "expected seven static brand logos");
+assert.equal((html.match(/class="brand-logo(?: |")/g) || []).length, 7, "expected seven static brand logos");
 for (const brand of [
   "PARKnSHOP Hong Kong",
   "MGM Macau",
@@ -47,6 +51,10 @@ for (const brand of [
 ]) {
   assert.match(html, new RegExp(`aria-label="${brand}"`), `expected an accessible ${brand} logo`);
 }
-assert.match(css, /\.brand-logo img\{[^}]*filter:grayscale\(1\)/, "brand artwork must use one monochrome treatment");
+assert.match(js, /syncArtistRail/, "artist rail must follow continuous scroll progress");
+assert.match(js, /--artist-progress/, "artist rail must expose normalized progress to CSS");
+assert.match(js, /--bridge-progress/, "work bridge must expose normalized progress to CSS");
+assert.match(css, /perspective:/, "artist rail must establish 3D perspective");
+assert.match(css, /prefers-reduced-motion:reduce/, "motion must have a reduced-motion fallback");
 
 console.log("home structural contract passed");
