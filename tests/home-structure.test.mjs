@@ -80,13 +80,12 @@ assert.match(workSection, /VIEW MORE WORK/, "work section must lead to the compl
 for (const row of workSection.matchAll(/<article class="work-row">([\s\S]*?)<\/article>/g)) {
   assert.ok(row[1].indexOf('class="work-media"') < row[1].indexOf('class="work-copy"'), "work media must precede its copy in every row");
 }
-assert.match(css, /\.work\{[^}]*padding-right:2vw[^}]*padding-left:17\.5vw/s, "desktop work rail must use the reference asymmetric page gutters");
-assert.match(css, /\.work-row\{[^}]*grid-template-columns:minmax\(0,58fr\) minmax\(0,42fr\)[^}]*gap:20px/s, "desktop work rows must use the reference 58/42 media-copy ratio");
+assert.match(css, /\.work \.section-head,\.work-index,\.work>\.index-link\{[^}]*1040px/s, "desktop stories rail must be capped at the reference content width");
+assert.match(css, /\.work-row\{[^}]*grid-template-columns:minmax\(0,58fr\) minmax\(0,42fr\)[^}]*gap:16px/s, "desktop work rows must use the reference 58/42 media-copy ratio");
 assert.match(css, /\.work-row \.work-media\{[^}]*aspect-ratio:3\/2/s, "work media must use the reference 3:2 ratio");
-assert.match(css, /\.work-copy h3\{[^}]*font-size:clamp\(22px,1\.4vw,29px\)/s, "work story titles must match the compact reference scale");
+assert.match(css, /\.work-copy h3\{[^}]*font-size:clamp\(21px,1\.65vw,24px\)/s, "work story titles must match the compact reference scale");
 assert.match(css, /\.work-copy h3\{[^}]*font-family:"DM Sans",Arial,sans-serif/s, "work story titles must use the reference grotesk typography");
-assert.match(css, /\.work-index\{[^}]*margin-left:0/s, "desktop work rows must start at the reference page gutter");
-assert.match(css, /\.work-description p\{[^}]*font-size:clamp\(16px,1\.02vw,21px\)[^}]*font-weight:600/s, "work body copy must use the reference size and weight");
+assert.match(css, /\.work-description p\{[^}]*font-size:clamp\(15px,1\.2vw,17\.5px\)[^}]*font-weight:600/s, "work body copy must use the reference size and weight");
 assert.doesNotMatch(js, /--work-jelly|settleWorkJelly|nudgeWorkJelly/, "work scrolling must never translate the whole editorial rail");
 assert.doesNotMatch(css, /\.work-index\{[^}]*transform:/s, "the work index must remain locked to the layout frame");
 assert.doesNotMatch(css, /\.work-row[^}]*animation:/s, "work rows must not use elastic animation");
