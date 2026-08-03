@@ -79,5 +79,8 @@ assert.match(workSection, /VIEW MORE WORK/, "work section must lead to the compl
 for (const row of workSection.matchAll(/<article class="work-row">([\s\S]*?)<\/article>/g)) {
   assert.ok(row[1].indexOf('class="work-media"') < row[1].indexOf('class="work-copy"'), "work media must precede its copy in every row");
 }
+assert.match(css, /\.work-row\{[^}]*grid-template-columns:minmax\(0,58fr\) minmax\(0,42fr\)/s, "desktop work rows must use the reference 58/42 media-copy ratio");
+assert.match(css, /\.work-row \.work-media\{[^}]*aspect-ratio:3\/2/s, "work media must use the reference 3:2 ratio");
+assert.match(css, /\.work-copy h3\{[^}]*font-size:16px/s, "work story titles must use the compact reference scale");
 
 console.log("home structural contract passed");
