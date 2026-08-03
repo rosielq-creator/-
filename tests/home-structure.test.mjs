@@ -58,8 +58,9 @@ for (const brand of [
 assert.match(js, /syncArtistRail/, "artist rail must follow continuous scroll progress");
 assert.match(js, /--artist-progress/, "artist rail must expose normalized progress to CSS");
 assert.match(js, /--bridge-progress/, "work bridge must expose normalized progress to CSS");
-assert.match(js, /--bridge-mask-progress/, "work bridge must expose immediate mask progress");
-assert.match(js, /--bridge-text-progress/, "work bridge must expose synchronized text progress");
+assert.doesNotMatch(js, /--bridge-(?:mask|text)-progress/, "cover and slogan must not use separate delayed progress values");
+assert.match(css, /\.bridge-mask\{[^}]*var\(--bridge-progress\)/s, "bridge cover must follow the shared progress value");
+assert.match(css, /\.work-bridge \.bridge-slogan\{[^}]*var\(--bridge-progress\)/s, "bridge slogan must follow the same shared progress value");
 assert.match(css, /perspective:/, "artist rail must establish 3D perspective");
 assert.match(css, /-webkit-text-stroke:/, "bridge slogan must use outlined typography");
 assert.match(css, /\.bridge-sheen/, "bridge slogan must include the silver sheen treatment");
