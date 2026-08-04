@@ -67,7 +67,11 @@ workVideos.forEach((button) => {
       try { await video.play(); } catch { video.controls = true; }
     } else video.pause();
   });
-  video.addEventListener("play", () => { label.textContent = "Pause"; button.setAttribute("aria-pressed", "true"); });
+  video.addEventListener("play", () => {
+    video.controls = true;
+    label.textContent = "Pause";
+    button.setAttribute("aria-pressed", "true");
+  });
   video.addEventListener("pause", () => { label.textContent = "Play"; button.setAttribute("aria-pressed", "false"); });
 });
 

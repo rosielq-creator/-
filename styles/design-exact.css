@@ -20,11 +20,44 @@
 @media(max-width:800px){.growth-chapter::after{opacity:.52;width:115vw;right:-45vw;top:18vh}.home-hero::after{top:9vh}.artist-card{width:100%;height:auto}.artist-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:auto}.work-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.growth-chapter::after{animation:none}}
 
+@media(max-width:800px){
+  :root{--static-blue:#cbd5ff;--static-rose:#f5e7e7}
+  .site-header{height:56px;padding:0 16px;background:#f7f7f3;color:#090c0c}
+  .site-brand{width:auto;height:auto;border-radius:0;background:none;text-decoration:none}
+  .site-brand::before{content:"GT";font:750 16px/1 Arial,sans-serif;letter-spacing:-.04em}
+  .language-switch{display:flex;justify-self:end;gap:12px}
+  .language-switch button{padding:0;border:0;background:none;color:inherit;font:700 12px/1 Arial,sans-serif}
+  .menu-mark{display:none}
+  .growth-stage[data-stage="seed"],.growth-stage[data-stage="bloom"]{opacity:0}
+  .home-hero{
+    min-height:calc(100svh - 56px);
+    background:
+      radial-gradient(circle at 92% 45%,var(--static-blue) 0,rgba(203,213,255,.72) 28%,rgba(203,213,255,0) 60%),
+      radial-gradient(circle at 4% 90%,var(--static-rose) 0,rgba(245,231,231,.65) 25%,rgba(245,231,231,0) 55%),
+      #f7f8f6;
+    color:#090c0c
+  }
+  .home-hero .chapter-number{display:none}
+  .home-hero .section-label{grid-column:1/4;width:120px;margin-top:34px;margin-left:-4px;font-size:11px;line-height:1.7;letter-spacing:.16em}
+  .home-hero h1{position:absolute;left:-4px;bottom:140px;margin:0;font-size:22vw;line-height:.72;letter-spacing:-.085em;white-space:nowrap}
+  .home-hero h1 span{display:inline}
+  .home-hero h1 span:last-child{margin-left:0;color:inherit;-webkit-text-stroke:0}
+  .home-hero .hero-statement{grid-column:1/-1;position:absolute;right:auto;left:56px;bottom:64px;width:285px;margin:0;font-size:18px;line-height:1.08}
+  .home-hero .hero-meta{right:16px;left:16px;bottom:26px}
+}
+
 /* Desktop master: one continuous editorial space. The approved HTML positions
    stay fixed while the shared WebGL organism changes behind them. */
 @media(min-width:801px){
+  :root{--static-blue:#cbd5ff;--static-rose:#f5e7e7;--static-mint:#dcefee}
   body.reference-home,.site-header,.growth-chapter,.site-footer{background:#090c0c;color:#f1f1ec}
-  .site-header{position:sticky;top:0}
+  .site-header{position:sticky;top:0;padding:0 3vw;background:#f7f7f3;color:#090c0c}
+  .site-brand{width:auto;height:auto;border-radius:0;background:none;text-decoration:none}
+  .site-brand::before{content:"GT";font:750 16px/1 Arial,sans-serif;letter-spacing:-.04em}
+  .site-header nav a{font-size:14px;letter-spacing:0;text-transform:none}
+  .language-switch{display:flex;justify-self:end;gap:12px}
+  .language-switch button{padding:0;border:0;background:none;color:inherit;font:700 12px/1 Arial,sans-serif}
+  .menu-mark{display:none}
   .chapter-shell{height:100vh;min-height:720px;padding-top:34px;padding-bottom:48px}
   .artist-index{min-height:980px;height:122vh}
   .success-stories{min-height:2100px;height:250vh}
@@ -36,6 +69,40 @@
   .work-media{border-color:rgba(241,241,236,.28);background:#1b1e1d}
   .contact-form input,.contact-form textarea{color:#f1f1ec;border-bottom-color:rgba(241,241,236,.5)}
   .contact-form button{background:#f1f1ec;color:#090c0c}
+  .growth-stage{opacity:1;transition:opacity .24s ease}
+  .growth-stage[data-stage="seed"]{opacity:0}
+  .growth-stage[data-stage="bloom"]{opacity:0}
+
+  /* Static-artwork parity: the organism remains available between chapters,
+     while the cover and portfolio screens keep their approved editorial lead. */
+  .home-hero{
+    height:calc(100vh - 52px);
+    min-height:668px;
+    padding-right:3vw;
+    padding-left:3vw;
+    background:
+      radial-gradient(circle at 88% 48%,var(--static-blue) 0,rgba(203,213,255,.68) 24%,rgba(203,213,255,0) 53%),
+      radial-gradient(circle at 7% 92%,var(--static-rose) 0,rgba(245,231,231,.65) 22%,rgba(245,231,231,0) 48%),
+      #f7f8f6;
+    color:#090c0c
+  }
+  .home-hero .chapter-number{display:none}
+  .home-hero .section-label{grid-column:1/5;margin-top:48px;font-size:11px;letter-spacing:.16em}
+  .home-hero h1{grid-column:1/-1;align-self:end;margin:0 0 100px;font-size:clamp(154px,17.1vw,246px);line-height:.68;letter-spacing:-.092em;white-space:nowrap}
+  .home-hero h1 span{display:inline}
+  .home-hero h1 span:last-child{margin-left:0;color:inherit;-webkit-text-stroke:0}
+  .home-hero .hero-statement{grid-column:auto;position:absolute;right:15vw;bottom:62px;width:500px;margin:0;font-size:clamp(26px,2.1vw,32px);line-height:.98}
+  .home-hero .hero-meta{bottom:24px}
+
+  .success-stories{
+    min-height:2400px;
+    height:260vh;
+    background:
+      radial-gradient(circle at 13% 30%,var(--static-mint) 0,rgba(220,239,238,.75) 18%,rgba(220,239,238,0) 44%),
+      radial-gradient(circle at 78% 12%,var(--static-rose) 0,rgba(245,231,231,.7) 18%,rgba(245,231,231,0) 46%),
+      #f7f8f6;
+    color:#090c0c
+  }
 
   /* Exact desktop composition from the approved lifecycle artwork. */
   .artist-index .section-intro{
@@ -64,29 +131,30 @@
   .success-stories .work-intro{
     position:absolute;
     grid-column:auto;
-    top:11vh;
-    left:40vw;
-    width:440px;
+    top:3vh;
+    left:34vw;
+    width:720px;
     align-self:auto
   }
+  .success-stories .work-intro h2{font-size:clamp(72px,6.6vw,100px);line-height:.82}
   .success-stories .work-intro>p{width:34ch;margin-top:34px}
   .success-stories .work-grid{
     position:absolute;
     grid-column:auto;
-    top:430px;
-    right:var(--gutter);
+    top:510px;
+    right:3vw;
     bottom:auto;
-    left:var(--gutter);
+    left:3vw;
     display:grid;
-    grid-template-columns:repeat(2,minmax(0,500px));
+    grid-template-columns:minmax(0,8fr) minmax(0,3fr);
     grid-template-rows:repeat(4,auto);
     justify-content:space-between;
-    gap:70px 100px;
+    gap:120px 9vw;
     padding:0
   }
   .work-card:nth-child(1){grid-column:1;grid-row:1}
-  .work-card:nth-child(2){grid-column:2;grid-row:2}
-  .work-card:nth-child(3){grid-column:1;grid-row:3}
-  .work-card:nth-child(4){grid-column:2;grid-row:4}
+  .work-card:nth-child(2){grid-column:2;grid-row:2;width:100%}
+  .work-card:nth-child(3){grid-column:1;grid-row:3;width:72%}
+  .work-card:nth-child(4){grid-column:2;grid-row:4;width:100%}
   .work-card>a{opacity:1}
 }
