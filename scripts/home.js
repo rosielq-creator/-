@@ -20,9 +20,12 @@ if (!reducedMotion.matches) {
   });
 
   const motionSections = [...document.querySelectorAll("[data-motion-section]")];
+  const ambientWorld = document.querySelector(".ambient-world");
   let motionFrame = 0;
   const updateMotion = () => {
     motionFrame = 0;
+    const pageTravel = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    document.documentElement.style.setProperty("--page-progress", Math.min(1, scrollY / pageTravel).toFixed(4));
     motionSections.forEach((section) => {
       const rect = section.getBoundingClientRect();
       const travel = rect.height + innerHeight;
@@ -38,6 +41,12 @@ if (!reducedMotion.matches) {
   const requestMotion = () => { if (!motionFrame) motionFrame = requestAnimationFrame(updateMotion); };
   addEventListener("scroll", requestMotion, { passive: true });
   addEventListener("resize", requestMotion, { passive: true });
+  if (ambientWorld && matchMedia("(pointer:fine)").matches) {
+    addEventListener("pointermove", (event) => {
+      document.documentElement.style.setProperty("--ambient-x", ((event.clientX / innerWidth) - .5).toFixed(3));
+      document.documentElement.style.setProperty("--ambient-y", ((event.clientY / innerHeight) - .5).toFixed(3));
+    }, { passive: true });
+  }
   updateMotion();
 } else {
   document.querySelectorAll("[data-motion-section], [data-motion-item]").forEach((node) => node.classList.add("is-in-view"));

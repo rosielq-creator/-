@@ -25,6 +25,10 @@ assert.match(home, /data-motion-section/);
 assert.match(home, /data-motion-item/);
 assert.match(home, /data-project-link/);
 assert.match(home, /data-media-toggle/);
+assert.match(home, /class="ambient-stage"/, "expected a persistent 3D ambient stage");
+assert.match(home, /data-ambient-object/, "expected DOM-based 3D scene objects");
+assert.match(home, /aria-hidden="true"/, "ambient scene must stay out of the accessibility tree");
+assert.doesNotMatch(home, /three\.js|webgl/i, "ambient stage should remain lightweight and DOM based");
 
 const manifest = JSON.parse(readFileSync(new URL("../data/authentic-assets.json", import.meta.url), "utf8"));
 const approved = new Set(manifest.filter(item => item.approved).map(item => item.path));
