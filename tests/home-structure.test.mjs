@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 
 const home = readFileSync(new URL("../index.html", import.meta.url), "utf8");
 const maya = readFileSync(new URL("../maya.html", import.meta.url), "utf8");
+const css = readFileSync(new URL("../styles/home-continuous.css", import.meta.url), "utf8");
 
 for (const page of [home, maya]) {
   assert.match(page, /data-site-shell/, "expected the shared site shell");
@@ -26,6 +27,10 @@ assert.match(home, /class="brand-index"/);
 assert.doesNotMatch(home, /ambient-stage|data-ambient-object|data-motion-section|data-motion-item/);
 assert.match(home, /data-project-link/);
 assert.match(home, /data-media-toggle/);
+assert.match(css, /\.reference-home/);
+assert.match(css, /\.success-stories/);
+assert.match(css, /aspect-ratio:\s*16\s*\/\s*9/);
+assert.doesNotMatch(css, /ambient-|backdrop-filter|radial-gradient|linear-gradient/);
 
 const manifest = JSON.parse(readFileSync(new URL("../data/authentic-assets.json", import.meta.url), "utf8"));
 const approved = new Set(manifest.filter(item => item.approved).map(item => item.path));
