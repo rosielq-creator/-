@@ -4,6 +4,13 @@
 
 Improve the mobile homepage interaction in two places without changing the existing visual direction.
 
+## Case page hierarchy
+
+- Remove the large static cover image currently shown between the site header and the case title.
+- Start every case page directly with the project eyebrow, title, description, and metadata block immediately below the site header, matching the supplied `Macau MGM` mobile reference.
+- Keep the first playable project video below the project-information block. Its poster may use the same artwork as the removed cover, but it must function as video media rather than a decorative duplicate.
+- Preserve the existing desktop layout language while applying the same content order: header, project information, then project media.
+
 ## Contact interaction
 
 - Keep the current contact hero and `Tell us your story` CTA.
@@ -29,4 +36,4 @@ Improve the mobile homepage interaction in two places without changing the exist
 
 ## Scope
 
-Only the homepage contact and selected-work interactions are changed. Case pages, artist pages, content, and the overall visual system remain unchanged.
+The homepage contact and selected-work interactions are changed, and case pages receive the revised hero hierarchy above. Artist pages, project content, and the overall visual system remain unchanged.
