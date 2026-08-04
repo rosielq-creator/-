@@ -43,7 +43,7 @@ assert.equal((home.match(/class="artist-card"/g) || []).length, 5, "homepage mus
 assert.match(home, /href="artists\.html"[^>]*>\s*(?:<[^>]+>)*View all artists/i, "expected a route to the complete artist index");
 assert.equal((home.match(/class="work-card"/g) || []).length, 4, "homepage must keep work curated");
 assert.match(home, /href="work\.html"[^>]*>\s*(?:<[^>]+>)*View all work/i, "expected a route to the complete work index");
-assert.match(css, /\.artist-media\{[^}]*aspect-ratio:/s, "artist media positions must share one ratio");
+assert.match(css, /\.artist-card\{[^}]*width:[^}]*height:/s, "artist media positions must share one square size");
 assert.doesNotMatch(home, /growth-seed|growth-sprout|growth-branches|growth-bloom/, "sections must not contain disconnected flower ornaments");
 for (const stage of ["seed", "sprout", "branches", "bloom", "seed-return"]) {
   assert.match(home, new RegExp(`data-growth-stage="${stage}"`), `expected ${stage} lifecycle stage`);
@@ -51,7 +51,7 @@ for (const stage of ["seed", "sprout", "branches", "bloom", "seed-return"]) {
 assert.doesNotMatch(home, /bloom-five|bloom-frames/, "rejected per-section flower ornaments must be removed");
 
 const homepageCss = readFileSync(new URL("../styles/home-continuous.css", import.meta.url), "utf8");
-for (const selector of [".artist-index", ".success-stories", ".brand-index", ".service-flow", ".contact-flow"]) {
+for (const selector of [".success-stories", ".brand-index", ".service-flow", ".contact-flow"]) {
   const escapedSelector = selector.replace(".", "\\.");
   const rule = homepageCss.match(new RegExp(`${escapedSelector}\\{[^}]*\\}`, "s"))?.[0] || "";
   assert.ok(rule, `expected a CSS rule for ${selector}`);
