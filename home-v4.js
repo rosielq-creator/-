@@ -75,9 +75,43 @@ if(manifestoLines.length){
 
 const workVideos=[...document.querySelectorAll(".work-media video")];
 workVideos.forEach(video=>{video.controls=true});
-const videos=[...document.querySelectorAll("video")];
-const videoObserver=new IntersectionObserver(entries=>entries.forEach(entry=>entry.isIntersecting?entry.target.play().catch(()=>{}):entry.target.pause()),{threshold:.4});
-videos.forEach(video=>videoObserver.observe(video));
+document.querySelectorAll(".work-media").forEach(workMedia=>{
+  const video=workMedia.querySelector("video");
+  if(!video)return;
+  workMedia.addEventListener("click",()=>{
+    if(video.paused){
+      workVideos.forEach(other=>{if(other!==video)other.pause()});
+      video.play().catch(()=>{video.controls=true});
+    }else video.pause();
+  });
+  video.addEventListener("play",()=>workMedia.setAttribute("aria-label",workMedia.getAttribute("aria-label").replace(/^Play /,"Pause ")));
+  video.addEventListener("pause",()=>workMedia.setAttribute("aria-label",workMedia.getAttribute("aria-label").replace(/^Pause /,"Play ")));
+});
+const videoObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.intersectionRatio<.4)entry.target.pause()}),{threshold:[0,.4]});
+workVideos.forEach(video=>videoObserver.observe(video));
+
+const contactTrigger=document.querySelector("[data-contact-trigger]");
+const contactForm=document.querySelector("[data-contact-form]");
+contactTrigger?.addEventListener("click",()=>{
+  contactForm.hidden=false;
+  contactTrigger.setAttribute("aria-expanded","true");
+  const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  contactForm.scrollIntoView({behavior:reduced?"auto":"smooth",block:"start"});
+  contactForm.querySelector("input")?.focus({preventScroll:true});
+});
+contactForm?.addEventListener("submit",event=>{
+  event.preventDefault();
+  const status=contactForm.querySelector(".contact-status");
+  if(!contactForm.reportValidity()){
+    status.textContent="Please complete the required fields.";
+    return;
+  }
+  const data=new FormData(contactForm);
+  const subject=`Project inquiry from ${data.get("name")}`;
+  const body=[`Name: ${data.get("name")}`,`Email: ${data.get("email")}`,`Company / brand: ${data.get("company")||"—"}`,`Project type: ${data.get("projectType")||"—"}`,"",String(data.get("message"))].join("\n");
+  status.textContent="Opening your email app with the completed inquiry.";
+  location.href=`mailto:hello@gtomato.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
 
 const canvas=document.querySelector("#mineralCanvas"),ctx=canvas?.getContext("2d");
 let width=0,height=0,frame=0,visible=true;

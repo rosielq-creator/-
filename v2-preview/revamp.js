@@ -573,7 +573,6 @@ function renderCase() {
       <section class="section-shell case-hero">
         <a class="back-link" href="work.html">← All work</a>
         <div class="case-hero__grid">
-          <figure class="case-cover"><img src="${brand.cover}" alt="${escapeHTML(brand.name)} project cover"></figure>
           <div class="case-info">
             <p class="micro-label">${escapeHTML(brand.industry)} / ${escapeHTML(brand.year)}</p>
             <h1>${escapeHTML(brand.name)}</h1>

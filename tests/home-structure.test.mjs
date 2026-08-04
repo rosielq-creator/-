@@ -4,6 +4,8 @@ import { readFileSync } from "node:fs";
 const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
 const css = readFileSync(new URL("../home-v4.css", import.meta.url), "utf8");
 const js = readFileSync(new URL("../home-v4.js", import.meta.url), "utf8");
+const caseJs = readFileSync(new URL("../v2-preview/revamp.js", import.meta.url), "utf8");
+const caseCss = readFileSync(new URL("../v2-preview/revamp.css", import.meta.url), "utf8");
 
 const order = ["class=\"hero\"", "class=\"manifesto\"", "class=\"artists\"", "class=\"work-bridge\"", "class=\"brands\"", "class=\"work\"", "class=\"services\"", "class=\"contact\""];
 let cursor = -1;
@@ -91,5 +93,25 @@ assert.doesNotMatch(css, /\.work-index\{[^}]*transform:/s, "the work index must 
 assert.doesNotMatch(css, /\.work-row[^}]*animation:/s, "work rows must not use elastic animation");
 assert.match(css, /\.work-row:hover \.work-media,\.work-row:focus-within \.work-media\{[^}]*transform:none!important/s, "hovering work media must never move the video frame");
 assert.match(js, /querySelectorAll\("\.work-media video"\)[\s\S]*video\.controls=true/s, "every homepage work video must expose playback controls");
+
+assert.equal((workSection.match(/<button class="work-media"/g) || []).length, 4, "work media must be a button, not a navigation link");
+assert.doesNotMatch(workSection, /<a class="work-media"/, "work media must never navigate to a case page");
+assert.match(js, /workMedia\.addEventListener\("click"[\s\S]*video\.play\(\)/s, "work media click must play video in place");
+assert.match(js, /entry\.intersectionRatio<\.4[\s\S]*entry\.target\.pause\(\)/s, "work video must pause when mostly out of view");
+
+const contactSection = html.slice(html.indexOf('class="contact"'), html.indexOf('</main>'));
+assert.match(contactSection, /data-contact-trigger/, "contact CTA must reveal the inline form");
+assert.match(contactSection, /<form[^>]*data-contact-form[^>]*hidden/, "contact form must start hidden in the contact section");
+for (const field of ["name", "email", "company", "projectType", "message"]) {
+  assert.match(contactSection, new RegExp(`name="${field}"`), `contact form must include ${field}`);
+}
+assert.match(contactSection, /class="[^"]*contact-status[^"]*"[^>]*role="status"/, "contact form must expose submission status");
+assert.match(js, /mailto:hello@gtomato\.com/, "static form must hand off completed data to the existing contact email workflow");
+assert.match(js, /scrollIntoView\(\{behavior:reduced\?"auto":"smooth"/, "contact form must scroll into view and respect reduced motion");
+
+assert.doesNotMatch(caseJs, /class="case-cover"/, "case pages must not render a decorative static cover");
+const renderCaseSource = caseJs.slice(caseJs.indexOf("function renderCase()"));
+assert.ok(renderCaseSource.indexOf('class="case-info"') < renderCaseSource.indexOf('case-media-section'), "case information must appear before playable media");
+assert.match(caseCss, /\.case-hero__grid\s*\{[^}]*grid-template-columns:\s*1fr/s, "case title and metadata must use the full-width top hierarchy");
 
 console.log("home structural contract passed");
