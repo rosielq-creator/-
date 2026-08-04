@@ -27,7 +27,7 @@ export function mountGrowthThree({ root = document } = {}) {
   const meshes = new Map();
 
   STAGES.forEach((name, index) => {
-    const assetName = name === "bloom" ? "bloom-alpha" : name;
+    const assetName = ["bloom", "seed-return"].includes(name) ? `${name}-alpha` : name;
     const texture = loader.load(`assets/growth/hd/${assetName}.png`, requestRender);
     texture.colorSpace = THREE.SRGBColorSpace;
     texture.minFilter = THREE.LinearMipmapLinearFilter;
@@ -36,7 +36,7 @@ export function mountGrowthThree({ root = document } = {}) {
       uniforms: {
         map: { value: texture },
         opacity: { value: index === 0 ? 1 : 0 },
-        whiteKey: { value: name === "seed-return" ? 1 : 0 },
+        whiteKey: { value: 0 },
         brightness: { value: name === "bloom" ? 2.15 : name === "seed-return" ? 1.75 : 1.18 }
       },
       vertexShader: `
