@@ -115,12 +115,21 @@ On mobile, Maya is smaller and edge-aligned, and may leave the frame entirely wh
 
 ## Visual System
 
-- Cream-white base, ink-black type, no additional large color fields.
-- High-contrast editorial display typography paired with highly readable body typography.
-- Hierarchy comes from scale, whitespace, crop, overlap, and motion.
-- Broken-grid moments are reserved for display type, artist imagery, project rhythm, and section hand-offs.
-- Body copy, controls, form labels, and reported data retain stable alignment.
-- Borders are minimized except where they materially improve form comprehension and interaction clarity.
+- The static layout follows By Monolog as the primary structural reference: header proportions, display-type scale, asymmetric positioning, whitespace cadence, artist index treatment, and medium-format Success Stories rhythm should be reproduced closely rather than loosely interpreted.
+- Essential is the motion reference only: the later motion pass may add a moving 3D underlay, typographic decomposition, media hand-offs, and scroll-linked transitions without disturbing the By Monolog-derived static composition.
+- The base reads as cool editorial paper with sharp dark type. Color comes primarily from authentic project media; do not add decorative AI gradients, rainbow blobs, glass cards, neon accents, or template-style color panels.
+- The Hero behaves like a fashion-magazine cover: an oversized GreenTomato wordmark, a very small bilingual business descriptor, and deliberately asymmetric placement rather than centered stacked copy.
+- About occupies negative space with short statements and no card container.
+- Artists uses an index/directory composition with names, numbering, and selective authentic media rather than a conventional portrait-card grid.
+- Work reproduces a medium-sized, whitespace-led Success Stories system. Desktop video is shown at its native 16:9 ratio without decorative cropping; hierarchy comes from column width, offset, captions, and sequence.
+- Brands sits between Work and Services as an editorial name index rather than a logo wall.
+- Services and Contact form a continuous closing composition. Form fields retain persistent labels and clearly readable rules or boundaries.
+- Broken-grid moments are reserved for display type, artist imagery, project rhythm, and section hand-offs. Body copy, controls, form labels, and reported data retain stable alignment.
+- Delete the current prototype's ambient color blobs, glass treatment, floating-card language, and other invented decoration.
+
+### Static-First Approval Gate
+
+The redesign restarts with one desktop full-page static composition. No new motion work or mobile adaptation begins until that composition is approved. The review image must show the complete sequence: Header, Hero, About, Artists, Success Stories, Brands, Services, Contact, and Footer. After static approval, mobile adaptation precedes the Essential-inspired motion layer.
 
 ## Bilingual Behavior
 
