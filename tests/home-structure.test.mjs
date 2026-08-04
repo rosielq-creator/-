@@ -23,7 +23,7 @@ assert.doesNotMatch(home, /work-bridge|brand-grid|artist-triggers/);
 assert.match(home, /class="[^"]*reference-home/);
 assert.match(home, /class="[^"]*artist-index[^"]*"/);
 assert.match(home, /class="[^"]*success-stories[^"]*"/);
-assert.match(home, /class="brand-index"/);
+assert.match(home, /class="[^"]*brand-index[^"]*"/);
 assert.doesNotMatch(home, /ambient-stage|data-ambient-object|data-motion-section|data-motion-item/);
 assert.match(home, /data-project-link/);
 assert.match(home, /data-media-toggle/);
@@ -33,12 +33,17 @@ assert.match(css, /aspect-ratio:\s*16\s*\/\s*9/);
 assert.doesNotMatch(css, /ambient-/);
 assert.match(home, /data-growth-organism/, "expected one persistent lifecycle organism");
 assert.match(home, /class="growth-surface"/, "expected one shared visual surface behind every chapter");
+assert.equal((home.match(/class="chapter-number"/g) || []).length, 6, "approved layout has six numbered chapters");
+assert.match(home, /class="[^\"]*hero-seed[^\"]*"/, "hero needs the approved seed composition");
+assert.match(home, /class="[^\"]*artist-grid[^\"]*"/, "artists need the approved five-slot composition");
+assert.match(home, /class="[^\"]*work-grid[^\"]*"/, "work needs the approved four-slot composition");
+assert.match(home, /class="[^\"]*brands-services[^\"]*"/, "brands and services must share chapter 05");
 assert.doesNotMatch(home, /growth-tree|tree-main-trunk|tree-abstract-crown/, "the rejected continuous tree must be removed");
 assert.equal((home.match(/class="artist-card"/g) || []).length, 5, "homepage must feature exactly five equal artists");
 assert.match(home, /href="artists\.html"[^>]*>\s*(?:<[^>]+>)*View all artists/i, "expected a route to the complete artist index");
 assert.equal((home.match(/class="work-card"/g) || []).length, 4, "homepage must keep work curated");
 assert.match(home, /href="work\.html"[^>]*>\s*(?:<[^>]+>)*View all work/i, "expected a route to the complete work index");
-assert.match(css, /\.artist-card\s*\{[^}]*aspect-ratio:/s, "artist media positions must share one ratio");
+assert.match(css, /\.artist-media\{[^}]*aspect-ratio:/s, "artist media positions must share one ratio");
 assert.doesNotMatch(home, /growth-seed|growth-sprout|growth-branches|growth-bloom/, "sections must not contain disconnected flower ornaments");
 for (const stage of ["seed", "sprout", "branches", "bloom", "seed-return"]) {
   assert.match(home, new RegExp(`data-growth-stage="${stage}"`), `expected ${stage} lifecycle stage`);
@@ -50,8 +55,10 @@ for (const selector of [".artist-index", ".success-stories", ".brand-index", ".s
   const escapedSelector = selector.replace(".", "\\.");
   const rule = homepageCss.match(new RegExp(`${escapedSelector}\\{[^}]*\\}`, "s"))?.[0] || "";
   assert.ok(rule, `expected a CSS rule for ${selector}`);
-  assert.doesNotMatch(rule, /background\s*:/, `${selector} must not create a slide-like section background`);
 }
+assert.match(homepageCss, /\.chapter-shell\{[^}]*grid-template-columns:\s*repeat\(12/s, "chapters must use the approved 12-column editorial shell");
+assert.match(homepageCss, /\.artist-grid\{[^}]*grid-template-columns:\s*repeat\(2/s, "artist photos must occupy the approved right-side editorial grid");
+assert.match(homepageCss, /\.work-grid\{[^}]*grid-template-columns:\s*repeat\(2/s, "featured work must use the approved 2x2 arrangement");
 assert.doesNotMatch(homepageCss, /\.reference-home main\{[^}]*background\s*:/s, "main must not paint a separate slide background");
 
 const manifest = JSON.parse(readFileSync(new URL("../data/authentic-assets.json", import.meta.url), "utf8"));

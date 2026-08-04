@@ -24,24 +24,49 @@
   <main id="main">
     <div class="growth-surface" aria-hidden="true"></div>
     <div class="growth-stage" data-growth-organism data-stage="seed" aria-hidden="true">
-      <div class="growth-form"><b class="growth-core"></b><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <svg class="growth-form" viewBox="0 0 900 1100" role="presentation">
+        <defs>
+          <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fcfcfa"/><stop offset=".18" stop-color="#8e9191"/><stop offset=".38" stop-color="#202222"/><stop offset=".57" stop-color="#f2f2ef"/><stop offset=".76" stop-color="#777a7a"/><stop offset="1" stop-color="#151616"/></linearGradient>
+          <radialGradient id="metalCore" cx="35%" cy="22%" r="78%"><stop offset="0" stop-color="#fff"/><stop offset=".2" stop-color="#a8aaaa"/><stop offset=".52" stop-color="#1b1d1d"/><stop offset=".76" stop-color="#e8e8e4"/><stop offset="1" stop-color="#333"/></radialGradient>
+          <filter id="metalShadow"><feDropShadow dx="0" dy="24" stdDeviation="22" flood-opacity=".28"/></filter>
+        </defs>
+        <g class="organism" filter="url(#metalShadow)">
+          <path class="stem" d="M466 1018 C430 875 506 760 457 632 C416 525 477 425 453 318 C438 250 457 192 479 132"/>
+          <path class="branch branch-a" d="M458 766 C355 701 281 652 178 648 C248 621 337 636 443 696"/>
+          <path class="branch branch-b" d="M461 694 C564 626 644 602 747 620 C667 642 581 672 472 744"/>
+          <path class="branch branch-c" d="M455 555 C354 502 295 451 229 385 C326 416 393 454 466 502"/>
+          <path class="branch branch-d" d="M459 480 C554 418 632 382 733 397 C650 430 566 473 468 535"/>
+          <path class="branch branch-e" d="M459 365 C398 315 358 263 330 201 C396 243 438 285 474 337"/>
+          <g class="petals">
+            <path d="M466 514 C323 491 211 370 208 232 C352 252 450 350 466 514Z"/>
+            <path d="M466 514 C371 399 377 241 476 139 C568 257 559 408 466 514Z"/>
+            <path d="M466 514 C481 356 590 245 731 224 C718 369 610 482 466 514Z"/>
+            <path d="M466 514 C594 444 731 475 810 586 C672 632 540 596 466 514Z"/>
+            <path d="M466 514 C545 624 513 767 404 837 C344 713 369 589 466 514Z"/>
+            <path d="M466 514 C352 596 211 577 124 477 C251 416 381 433 466 514Z"/>
+          </g>
+          <ellipse class="seed" cx="466" cy="514" rx="155" ry="235" transform="rotate(22 466 514)"/>
+          <path class="seed-groove" d="M397 312 C480 394 530 521 512 729"/>
+          <circle class="crystal" cx="466" cy="514" r="118"/>
+        </g>
+      </svg>
     </div>
-    <section class="home-hero growth-chapter growth-hero" data-growth-stage="seed" aria-labelledby="hero-title">
-      <p class="section-label" data-copy="hero.eyebrow">AI ARTISTS / CREATIVE PRODUCTION</p>
+    <section class="home-hero hero-seed growth-chapter chapter-shell" data-growth-stage="seed" aria-labelledby="hero-title">
+      <p class="chapter-number">01</p><p class="section-label" data-copy="hero.eyebrow">A seed for new realities</p>
       <h1 id="hero-title"><span>Green</span><span>Tomato</span></h1>
-      <p class="hero-statement" data-copy="hero.statement">We build identities, images and worlds for culture-shaping brands.</p>
-      <div class="hero-meta" aria-hidden="true"><span>Hong Kong</span><span>Global / 2026</span></div>
+      <p class="hero-statement" data-copy="hero.statement">We build identities, images and worlds<br>for culture-shaping brands.</p>
+      <div class="hero-meta" aria-hidden="true"><span>Est. Hong Kong</span><span>Scroll to begin</span></div>
     </section>
 
-    <section id="about" class="home-about growth-chapter growth-about" data-growth-stage="sprout" aria-labelledby="about-title">
-      <p class="section-label">01 / POSITION</p>
+    <section id="about" class="home-about growth-chapter chapter-shell" data-growth-stage="sprout" aria-labelledby="about-title">
+      <p class="chapter-number">02</p><p class="section-label">About us</p>
       <h2 id="about-title" data-copy="about.title">Human taste.<br>Machine possibility.</h2>
       <p class="about-body" data-copy="about.body">We represent next-generation artists and create AI-native campaigns with a human point of view.</p>
-      <p class="about-aside">Technology expands what can be made.<br>People decide what deserves to exist.</p>
     </section>
 
-    <section id="artists" class="artist-index growth-chapter" data-growth-stage="branches" aria-labelledby="artists-title">
-      <header class="section-intro"><p class="section-label">02 / ARTISTS</p><h2 id="artists-title">Artists shaping<br>new realities.</h2></header>
+    <section id="artists" class="artist-index growth-chapter chapter-shell" data-growth-stage="branches" aria-labelledby="artists-title">
+      <p class="chapter-number">03</p><p class="section-label">Artists</p>
+      <header class="section-intro"><h2 id="artists-title">Artists shaping<br>new realities.</h2><p>Directors, designers and technologists<br>who turn ambitious ideas into work<br>that moves culture.</p><a class="index-link" href="artists.html">View all artists <span>↗</span></a></header>
       <div class="artist-grid">
         <a href="maya.html" class="artist-card"><div class="artist-media"><span>Portrait pending</span></div><p><strong>Maya</strong><small>Luxury fashion / art</small></p></a>
         <a href="amber.html" class="artist-card"><div class="artist-media"><span>Portrait pending</span></div><p><strong>Amber</strong><small>Music / fashion</small></p></a>
@@ -49,54 +74,45 @@
         <a href="noah.html" class="artist-card"><div class="artist-media"><span>Portrait pending</span></div><p><strong>Noah</strong><small>Film / fashion</small></p></a>
         <a href="mario.html" class="artist-card"><div class="artist-media"><span>Portrait pending</span></div><p><strong>Mario</strong><small>Lifestyle / sport</small></p></a>
       </div>
-      <a class="index-link" href="artists.html">View all artists <span>↗</span></a>
     </section>
 
-    <section id="work" class="success-stories growth-chapter" data-growth-stage="bloom" aria-labelledby="work-title">
-      <header class="section-intro work-intro"><p class="section-label">03 / SUCCESS STORIES</p><h2 id="work-title">Selected work,<br>made to move.</h2></header>
-      <article class="work-card">
+    <section id="work" class="success-stories growth-chapter chapter-shell" data-growth-stage="bloom" aria-labelledby="work-title">
+      <p class="chapter-number">04</p><p class="section-label">Work</p>
+      <header class="section-intro work-intro"><h2 id="work-title">Selected work,<br>made to move.</h2><p>From short films to brand worlds,<br>we create stories that resonate<br>and endure.</p><a class="index-link work-index-link" href="work.html">View all work <span>↗</span></a></header>
+      <div class="work-grid"><article class="work-card">
         <button class="work-media" type="button" data-media-toggle aria-label="Play ChillGOOD video"><video muted loop playsinline preload="metadata" poster="assets/work/takoyaki-poster.jpg"><source src="assets/work/web-video/takoyaki.web.mp4" type="video/mp4"></video><span>Play</span></button>
         <div class="work-caption"><p>Entertainment / 2026</p><h3>ChillGOOD × TV章魚燒</h3><a data-project-link href="v2-preview/case.html?brand=takoyaki">View project ↗</a></div>
-      </article>
-      <article class="work-card">
+      </article><article class="work-card">
         <button class="work-media" type="button" data-media-toggle aria-label="Play The Peninsula Hong Kong video"><video muted loop playsinline preload="metadata" poster="assets/work/peninsula/peninsula-fathers-day-key-visual.jpg"><source src="assets/work/web-video/peninsula.web.mp4" type="video/mp4"></video><span>Play</span></button>
         <div class="work-caption"><p>Hospitality / 2026</p><h3>The Peninsula Hong Kong</h3><a data-project-link href="v2-preview/case.html?brand=peninsula">View project ↗</a></div>
-      </article>
-      <article class="work-card">
+      </article><article class="work-card">
         <button class="work-media" type="button" data-media-toggle aria-label="Play Octopus video"><video muted loop playsinline preload="metadata" poster="assets/work/octopus-cover.jpg"><source src="assets/work/web-video/octopus.web.mp4" type="video/mp4"></video><span>Play</span></button>
         <div class="work-caption"><p>Transport / 2026</p><h3>Octopus</h3><a data-project-link href="v2-preview/case.html?brand=octopus">View project ↗</a></div>
-      </article>
-      <article class="work-card">
+      </article><article class="work-card">
         <button class="work-media" type="button" data-media-toggle aria-label="Play MGM Macau video"><video muted loop playsinline preload="metadata" poster="assets/work/mgm-01-poster.jpg"><source src="assets/work/web-video/mgm-01.web.mp4" type="video/mp4"></video><span>Play</span></button>
         <div class="work-caption"><p>Hospitality / 2026</p><h3>MGM Macau</h3><a data-project-link href="v2-preview/case.html?brand=mgm">View project ↗</a></div>
-      </article>
-      <a class="index-link work-index-link" href="work.html">View all work <span>↗</span></a>
+      </article></div>
     </section>
 
-    <section id="brands" class="brand-index" aria-labelledby="brands-title">
-      <header class="brand-stream-head"><p class="section-label">04 / SELECTED PARTNERS</p><h2 id="brands-title">Built with brands.<br>Made for culture.</h2></header>
+    <section id="brands" class="brand-index chapter-shell growth-chapter" data-growth-stage="crystal" aria-labelledby="brands-title">
+      <p class="chapter-number">05</p><p class="section-label">Brands &amp; services</p>
+      <div class="brands-services"><header class="brand-stream-head"><h2 id="brands-title">Built with brands.<br>Made for culture.</h2></header>
       <div class="brand-lines" aria-label="Selected brand partners">
         <p><span>PARKnSHOP</span><span>MGM MACAU</span><span>OCTOPUS</span></p>
         <p><span>THE PENINSULA</span><span>CHILLGOOD TV</span></p>
         <p><span>ASIA ALLIED</span><span>CHOW SANG SANG</span></p>
-      </div>
+      </div><div id="services" class="service-flow"><h2 id="services-title">We build the<br>whole world.</h2><div class="service-list"><p>AI talent casting</p><p>Character building</p><p>Content production</p><p>Campaign collaboration</p></div></div></div>
     </section>
 
-    <section id="services" class="service-flow" aria-labelledby="services-title">
-      <p class="section-label">05 / CAPABILITIES</p>
-      <h2 id="services-title">We build the<br>whole world.</h2>
-      <div class="service-list"><p><span>01</span>AI talent casting</p><p><span>02</span>Character building</p><p><span>03</span>Content production</p><p><span>04</span>Campaign collaboration</p></div>
-    </section>
-
-    <section id="contact" class="contact-flow growth-chapter" data-growth-stage="seed-return" aria-labelledby="contact-title">
-      <p class="section-label">06 / START A PROJECT</p>
+    <section id="contact" class="contact-flow growth-chapter chapter-shell" data-growth-stage="seed-return" aria-labelledby="contact-title">
+      <p class="chapter-number">06</p><p class="section-label">Contact</p>
       <h2 id="contact-title" data-copy="contact.title">Tell us your story</h2>
       <form class="contact-form" data-contact-form>
         <label><span data-copy="contact.name">Name</span><input name="name" autocomplete="name" required></label>
         <label><span data-copy="contact.email">Email</span><input name="email" type="email" autocomplete="email" required></label>
         <label><span data-copy="contact.company">Brand / company</span><input name="company" autocomplete="organization"></label>
-        <label class="contact-message"><span data-copy="contact.message">Project description</span><textarea name="message" rows="5" required></textarea></label>
-        <button type="submit" data-copy="contact.submit">Send inquiry</button>
+        <label class="contact-message"><span data-copy="contact.message">Tell us more</span><textarea name="message" rows="2" required></textarea></label>
+        <button type="submit" data-copy="contact.submit">Send message</button>
         <p role="status" aria-live="polite"></p>
       </form>
     </section>
