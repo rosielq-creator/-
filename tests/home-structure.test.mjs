@@ -19,16 +19,13 @@ for (const id of ["about", "artists", "work", "brands", "services", "contact"]) 
   assert.match(home, new RegExp(`id="${id}"`), `expected #${id}`);
 }
 assert.doesNotMatch(home, /work-bridge|brand-grid|artist-triggers/);
-assert.match(home, /class="work-grid"/);
-assert.match(home, /class="brand-stream"/);
-assert.match(home, /data-motion-section/);
-assert.match(home, /data-motion-item/);
+assert.match(home, /class="[^"]*reference-home/);
+assert.match(home, /class="artist-index"/);
+assert.match(home, /class="success-stories"/);
+assert.match(home, /class="brand-index"/);
+assert.doesNotMatch(home, /ambient-stage|data-ambient-object|data-motion-section|data-motion-item/);
 assert.match(home, /data-project-link/);
 assert.match(home, /data-media-toggle/);
-assert.match(home, /class="ambient-stage"/, "expected a persistent 3D ambient stage");
-assert.match(home, /data-ambient-object/, "expected DOM-based 3D scene objects");
-assert.match(home, /aria-hidden="true"/, "ambient scene must stay out of the accessibility tree");
-assert.doesNotMatch(home, /three\.js|webgl/i, "ambient stage should remain lightweight and DOM based");
 
 const manifest = JSON.parse(readFileSync(new URL("../data/authentic-assets.json", import.meta.url), "utf8"));
 const approved = new Set(manifest.filter(item => item.approved).map(item => item.path));
