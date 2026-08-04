@@ -5,6 +5,7 @@ const home = readFileSync(new URL("../index.html", import.meta.url), "utf8");
 const maya = readFileSync(new URL("../maya.html", import.meta.url), "utf8");
 const css = readFileSync(new URL("../styles/home-continuous.css", import.meta.url), "utf8");
 const exactCss = readFileSync(new URL("../styles/design-exact.css", import.meta.url), "utf8");
+const masterCss = readFileSync(new URL("../styles/reference-master.css", import.meta.url), "utf8");
 const homeScript = readFileSync(new URL("../scripts/home.js", import.meta.url), "utf8");
 
 for (const page of [home, maya]) {
@@ -73,32 +74,19 @@ assert.match(homepageCss, /\.artist-grid\{[^}]*grid-template-columns:\s*repeat\(
 assert.match(homepageCss, /\.work-grid\{[^}]*grid-template-columns:\s*repeat\(2/s, "featured work must use the approved 2x2 arrangement");
 assert.doesNotMatch(homepageCss, /\.reference-home main\{[^}]*background\s*:/s, "main must not paint a separate slide background");
 
-// Static artwork parity: desktop Hero and Work keep the approved light,
-// oversized editorial hierarchy even when the lifecycle layer is available.
-assert.match(exactCss, /--static-blue:\s*#cbd5ff/, "expected the approved cool hero colour");
-assert.match(exactCss, /--static-rose:\s*#f5e7e7/, "expected the approved warm work colour");
-assert.match(exactCss, /\.home-hero\{[^}]*background:[^}]*radial-gradient/s, "hero must retain the static colour field");
-assert.match(exactCss, /\.home-hero h1 span\{[^}]*display:inline/s, "desktop wordmark must remain on one line");
-assert.match(exactCss, /\.success-stories \.work-intro\{[^}]*left:34vw/s, "work title must follow the approved centered offset");
-assert.match(exactCss, /\.success-stories \.work-grid\{[^}]*grid-template-columns:minmax\(0,8fr\) minmax\(0,3fr\)/s, "work media must preserve the approved dominant first story");
-assert.match(home, /AI ARTISTS \/ CREATIVE PRODUCTION/, "hero eyebrow must match the approved static artwork");
-assert.doesNotMatch(home, /<nav[^>]*>[\s\S]*?<a href="#brands">/i, "desktop navigation must match the approved five-link master");
-assert.match(exactCss, /\.growth-stage\[data-stage="seed"\][^{]*\{[^}]*opacity:0/s, "static hero must not be obscured by the lifecycle object");
-assert.match(exactCss, /\.growth-stage\[data-stage="bloom"\][^{]*\{[^}]*opacity:0/s, "static work screen must not be obscured by the lifecycle object");
-assert.match(exactCss, /\.home-hero h1\{[^}]*margin:0 0 100px/s, "hero wordmark needs the approved baseline above the statement");
-assert.match(exactCss, /\.home-hero \.hero-statement\{[^}]*right:16vw[^}]*bottom:64px[^}]*width:560px/s, "hero statement must match the approved two-line placement");
-assert.match(exactCss, /@media\(min-width:801px\)[\s\S]*\.home-hero\{[^}]*height:calc\(100vh - 52px\)/s, "desktop hero and sticky header must fit one viewport");
-assert.match(exactCss, /@media\(min-width:801px\)[\s\S]*\.site-brand::before\{content:"GT"/s, "desktop header must show the approved GT wordmark");
-assert.match(exactCss, /@media\(min-width:801px\)[\s\S]*\.language-switch\{[^}]*display:flex/s, "desktop header must expose the approved language controls");
-assert.match(exactCss, /\.success-stories \.work-grid\{[^}]*top:510px/s, "first work frame must start at the approved vertical coordinate");
-assert.match(exactCss, /\.success-stories \.work-grid\{[^}]*left:3vw/s, "work frames must use the approved narrow page gutter");
-assert.match(exactCss, /\.success-stories \.work-grid\{[^}]*grid-template-columns:minmax\(0,8fr\) minmax\(0,3fr\)/s, "first work frame must retain the approved dominant width");
-assert.match(exactCss, /@media\(max-width:800px\)[\s\S]*\.site-brand::before\{content:"GT"/s, "mobile header must restore the approved GT wordmark");
-assert.match(exactCss, /@media\(max-width:800px\)[\s\S]*\.home-hero\{[^}]*radial-gradient/s, "mobile hero must keep the approved light colour field");
-assert.match(exactCss, /@media\(max-width:800px\)[\s\S]*\.home-hero h1\{[^}]*white-space:nowrap/s, "mobile wordmark must stay on one clipped line");
-assert.match(exactCss, /@media\(max-width:800px\)[\s\S]*\.home-hero \.hero-statement\{[^}]*grid-column:1\/-1/s, "mobile statement must be positioned from the full hero grid");
-assert.match(exactCss, /@media\(max-width:800px\)[\s\S]*\.home-hero \.hero-statement\{[^}]*left:56px/s, "mobile statement must land at the approved 76px page coordinate");
-assert.match(home, /<span>Hong Kong<\/span><span>Global \/ 2026<\/span>/, "hero metadata must match the static artwork");
+// Final black/white six-chapter reference contract.
+assert.match(home, /A seed for new realities/i, "hero eyebrow must match the approved reference");
+assert.match(home, /<a href="#brands">Brands<\/a>/i, "reference navigation includes Brands");
+assert.match(home, /<span>Est\. Hong Kong<\/span><span>Scroll to begin<\/span>/, "hero metadata must match the reference");
+assert.match(home, /styles\/reference-master\.css/, "the final reference master must load last");
+for (const height of [594, 641, 818, 804, 788, 506]) {
+  assert.match(masterCss, new RegExp(`height:${height}px\\s*!important`), `expected approved ${height}px chapter height`);
+}
+assert.match(masterCss, /\.home-hero\s*\{[^}]*background:var\(--ink\)/s, "hero must use the approved black field");
+assert.match(masterCss, /\.home-about\s*\{[^}]*background:var\(--paper\)/s, "about must use the approved paper field");
+assert.match(masterCss, /\.artist-card:nth-child\(1\)\s*\{[^}]*left:586px;[^}]*top:52px/s, "artist grid must retain the first approved coordinate");
+assert.match(masterCss, /\.work-card:nth-child\(4\)\s*\{[^}]*right:137px;[^}]*top:520px/s, "work grid must retain the fourth approved coordinate");
+assert.match(masterCss, /@media \(max-width:800px\)/, "mobile reference treatment is required");
 
 const manifest = JSON.parse(readFileSync(new URL("../data/authentic-assets.json", import.meta.url), "utf8"));
 const approved = new Set(manifest.filter(item => item.approved).map(item => item.path));
