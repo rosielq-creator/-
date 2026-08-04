@@ -44,6 +44,14 @@ for (const stage of ["seed", "sprout", "branches", "bloom", "seed-return"]) {
 }
 assert.doesNotMatch(home, /bloom-five|bloom-frames/, "rejected per-section flower ornaments must be removed");
 
+const homepageCss = readFileSync(new URL("../styles/home-continuous.css", import.meta.url), "utf8");
+for (const selector of [".artist-index", ".success-stories", ".brand-index", ".service-flow", ".contact-flow"]) {
+  const escapedSelector = selector.replace(".", "\\.");
+  const rule = homepageCss.match(new RegExp(`${escapedSelector}\\{[^}]*\\}`, "s"))?.[0] || "";
+  assert.ok(rule, `expected a CSS rule for ${selector}`);
+  assert.doesNotMatch(rule, /background\s*:/, `${selector} must not create a slide-like section background`);
+}
+
 const manifest = JSON.parse(readFileSync(new URL("../data/authentic-assets.json", import.meta.url), "utf8"));
 const approved = new Set(manifest.filter(item => item.approved).map(item => item.path));
 const localMedia = [...home.matchAll(/(?:src|poster)="(assets\/[^"?]+)/g)].map(match => match[1]);
