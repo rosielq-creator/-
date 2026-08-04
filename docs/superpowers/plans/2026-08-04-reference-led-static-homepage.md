@@ -186,4 +186,3 @@ Expected: all checks pass with no diff whitespace errors.
 - [ ] **Step 5: Send the screenshot for approval**
 
 Send `previews/reference-static-desktop-full.png` to the active Discord channel. Do not begin responsive CSS or Essential-inspired motion until the user explicitly approves this static composition.
-
