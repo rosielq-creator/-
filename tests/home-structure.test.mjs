@@ -32,6 +32,7 @@ assert.match(css, /\.success-stories/);
 assert.match(css, /aspect-ratio:\s*16\s*\/\s*9/);
 assert.doesNotMatch(css, /ambient-/);
 assert.match(home, /data-growth-organism/, "expected one persistent lifecycle organism");
+assert.match(home, /class="growth-surface"/, "expected one shared visual surface behind every chapter");
 assert.doesNotMatch(home, /growth-tree|tree-main-trunk|tree-abstract-crown/, "the rejected continuous tree must be removed");
 assert.equal((home.match(/class="artist-card"/g) || []).length, 5, "homepage must feature exactly five equal artists");
 assert.match(home, /href="artists\.html"[^>]*>\s*(?:<[^>]+>)*View all artists/i, "expected a route to the complete artist index");
@@ -51,6 +52,7 @@ for (const selector of [".artist-index", ".success-stories", ".brand-index", ".s
   assert.ok(rule, `expected a CSS rule for ${selector}`);
   assert.doesNotMatch(rule, /background\s*:/, `${selector} must not create a slide-like section background`);
 }
+assert.doesNotMatch(homepageCss, /\.reference-home main\{[^}]*background\s*:/s, "main must not paint a separate slide background");
 
 const manifest = JSON.parse(readFileSync(new URL("../data/authentic-assets.json", import.meta.url), "utf8"));
 const approved = new Set(manifest.filter(item => item.approved).map(item => item.path));
