@@ -15,11 +15,14 @@ for (const page of [home, maya]) {
 assert.match(home, /type="module" src="scripts\/home\.js/);
 assert.match(maya, /type="module" src="scripts\/maya-profile\.js/);
 
-for (const id of ["about", "artists", "work", "services", "contact"]) {
+for (const id of ["about", "artists", "work", "brands", "services", "contact"]) {
   assert.match(home, new RegExp(`id="${id}"`), `expected #${id}`);
 }
 assert.doesNotMatch(home, /work-bridge|brand-grid|artist-triggers/);
 assert.match(home, /class="work-grid"/);
+assert.match(home, /class="brand-stream"/);
+assert.match(home, /data-motion-section/);
+assert.match(home, /data-motion-item/);
 assert.match(home, /data-project-link/);
 assert.match(home, /data-media-toggle/);
 
