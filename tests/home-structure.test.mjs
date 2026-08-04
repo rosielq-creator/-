@@ -33,6 +33,8 @@ assert.doesNotMatch(home, /ambient-stage|data-ambient-object|data-motion-section
 assert.match(home, /data-project-link/);
 assert.match(home, /data-media-toggle/);
 assert.match(homeScript, /video\.addEventListener\("play",\s*\(\)\s*=>\s*\{[^}]*video\.controls\s*=\s*true/s, "started Work videos must expose native controls");
+assert.match(homeScript, /contactForm\.addEventListener\("submit"/, "contact prototype must handle submission in place");
+assert.match(homeScript, /Thanks — we’ll be in touch\./, "contact prototype must provide the approved success feedback");
 assert.match(css, /\.reference-home/);
 assert.match(css, /\.success-stories/);
 assert.match(css, /aspect-ratio:\s*16\s*\/\s*9/);
@@ -48,6 +50,10 @@ assert.doesNotMatch(home, /growth-tree|tree-main-trunk|tree-abstract-crown/, "th
 assert.equal((home.match(/class="artist-card"/g) || []).length, 5, "homepage must feature exactly five equal artists");
 assert.match(home, /href="artists\.html"[^>]*>\s*(?:<[^>]+>)*View all artists/i, "expected a route to the complete artist index");
 assert.equal((home.match(/class="work-card"/g) || []).length, 4, "homepage must keep work curated");
+for (const title of ["CHILDGOD · TVB", "The Peninsula Hong Kong", "Octopus", "MGM Macau"]) {
+  assert.ok(home.includes(title), `expected approved Work title: ${title}`);
+}
+assert.doesNotMatch(home, />ChillGOOD\s*↗</i, "the rejected placeholder project title must not remain");
 assert.match(home, /href="work\.html"[^>]*>\s*(?:<[^>]+>)*View all work/i, "expected a route to the complete work index");
 assert.match(css, /\.artist-card\{[^}]*width:[^}]*height:/s, "artist media positions must share one square size");
 assert.doesNotMatch(home, /growth-seed|growth-sprout|growth-branches|growth-bloom/, "sections must not contain disconnected flower ornaments");
@@ -76,9 +82,11 @@ assert.match(exactCss, /\.home-hero h1 span\{[^}]*display:inline/s, "desktop wor
 assert.match(exactCss, /\.success-stories \.work-intro\{[^}]*left:34vw/s, "work title must follow the approved centered offset");
 assert.match(exactCss, /\.success-stories \.work-grid\{[^}]*grid-template-columns:minmax\(0,8fr\) minmax\(0,3fr\)/s, "work media must preserve the approved dominant first story");
 assert.match(home, /AI ARTISTS \/ CREATIVE PRODUCTION/, "hero eyebrow must match the approved static artwork");
+assert.doesNotMatch(home, /<nav[^>]*>[\s\S]*?<a href="#brands">/i, "desktop navigation must match the approved five-link master");
 assert.match(exactCss, /\.growth-stage\[data-stage="seed"\][^{]*\{[^}]*opacity:0/s, "static hero must not be obscured by the lifecycle object");
 assert.match(exactCss, /\.growth-stage\[data-stage="bloom"\][^{]*\{[^}]*opacity:0/s, "static work screen must not be obscured by the lifecycle object");
 assert.match(exactCss, /\.home-hero h1\{[^}]*margin:0 0 100px/s, "hero wordmark needs the approved baseline above the statement");
+assert.match(exactCss, /\.home-hero \.hero-statement\{[^}]*right:16vw[^}]*bottom:64px[^}]*width:560px/s, "hero statement must match the approved two-line placement");
 assert.match(exactCss, /@media\(min-width:801px\)[\s\S]*\.home-hero\{[^}]*height:calc\(100vh - 52px\)/s, "desktop hero and sticky header must fit one viewport");
 assert.match(exactCss, /@media\(min-width:801px\)[\s\S]*\.site-brand::before\{content:"GT"/s, "desktop header must show the approved GT wordmark");
 assert.match(exactCss, /@media\(min-width:801px\)[\s\S]*\.language-switch\{[^}]*display:flex/s, "desktop header must expose the approved language controls");

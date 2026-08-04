@@ -81,3 +81,14 @@ if ("IntersectionObserver" in window) {
   }), { threshold: 0.1 });
   workVideos.forEach((button) => pauseObserver.observe(button));
 }
+
+const contactForm = document.querySelector("[data-contact-form]");
+if (contactForm) {
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const status = contactForm.querySelector('[role="status"]');
+    if (!contactForm.reportValidity()) return;
+    if (status) status.textContent = "Thanks — we’ll be in touch.";
+    contactForm.reset();
+  });
+}

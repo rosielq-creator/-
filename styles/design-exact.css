@@ -46,6 +46,71 @@
   .home-hero .hero-meta{right:16px;left:16px;bottom:26px}
 }
 
+/* 1440px approved lifecycle master — final desktop pass. */
+@media(min-width:801px){
+  :root{--master-paper:#f2f2ed;--master-ink:#080b0a}
+  body.reference-home{background:var(--master-ink);color:var(--master-paper)}
+  .site-header{height:52px;padding:0 28px;background:var(--master-paper);color:var(--master-ink)}
+  .site-header nav{gap:32px}.site-header nav a{font-size:10px;font-weight:650}
+  .chapter-shell{padding:34px 3vw 46px}
+  .chapter-number{font-size:10px}.section-label{font-size:8px;letter-spacing:.08em}
+
+  .growth-stage{display:none}
+  .growth-chapter::after{display:block;opacity:1;animation:none;mix-blend-mode:normal;filter:drop-shadow(0 20px 24px rgba(0,0,0,.2))}
+  .home-hero::after{width:35vw;right:10vw;top:8vh;background-image:url("../assets/growth/hd/seed.png")}
+  .home-about::after{width:47vw;right:auto;left:-3vw;top:8vh;background-image:url("../assets/growth/hd/sprout.png")}
+  .artist-index::after{width:48vw;right:4vw;top:0;background-image:url("../assets/growth/hd/branches.png");opacity:.55}
+  .success-stories::after{width:74vw;right:-2vw;top:10vh;background-image:url("../assets/growth/hd/bloom.png")}
+  .brand-index::after{width:44vw;right:3vw;top:9vh;background-image:url("../assets/growth/hd/crystal.png");mix-blend-mode:multiply;opacity:.62}
+  .contact-flow::after{width:34vw;right:10vw;top:13vh;background-image:url("../assets/growth/hd/seed-return.png")}
+
+  .home-hero{height:948px;min-height:948px;background:var(--master-ink);color:var(--master-paper)}
+  .home-hero .section-label{margin-top:0}
+  .home-hero h1{position:absolute;left:3vw;top:230px;width:68vw;margin:0;font-size:clamp(150px,15.5vw,224px);line-height:.68;letter-spacing:-.085em;white-space:normal}
+  .home-hero h1 span{display:block}.home-hero h1 span:last-child{margin-left:20%;color:transparent;-webkit-text-stroke:1px #777b79}
+  .home-hero .hero-statement{right:16vw;bottom:185px;width:390px;font-size:24px;line-height:1}
+  .home-hero .hero-meta{bottom:34px}
+
+  .home-about{height:930px;min-height:930px;background:var(--master-ink);color:var(--master-paper)}
+  .home-about h2{position:absolute;top:250px;left:27vw;margin:0;font-size:clamp(72px,6.7vw,96px);line-height:.83}
+  .home-about .about-body{position:absolute;top:485px;left:58vw;margin:0;font-size:14px;line-height:1.2}
+
+  .artist-index{height:1120px;min-height:1120px;background:var(--master-ink);color:var(--master-paper)}
+  .artist-index .section-intro{position:absolute;top:145px;left:41vw;width:480px;margin:0}
+  .artist-index .section-intro h2{font-size:76px;line-height:.84}
+  .artist-index .section-intro>p{width:330px;margin-top:28px}
+  .artist-index .index-link{position:relative;top:auto;left:auto;margin-top:30px}
+  .artist-grid{right:3vw;bottom:90px;left:3vw;grid-template-columns:repeat(5,1fr);grid-auto-rows:auto;gap:28px}
+  .artist-card{width:100%;height:auto;aspect-ratio:1;border:0;background:#333}
+  .artist-card:nth-child(even){translate:0 62px}.artist-card img{object-fit:cover}
+  .artist-card span{left:0;bottom:-22px;font-size:10px}
+
+  .success-stories{height:3400px;min-height:3400px;background:var(--master-ink);color:var(--master-paper)}
+  .success-stories .work-intro{top:140px;left:42vw;width:650px}
+  .success-stories .work-intro h2{font-size:94px;line-height:.82}
+  .success-stories .work-intro>p{margin-top:30px}
+  .success-stories .work-grid{top:890px;right:3vw;left:3vw;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:260px 12vw}
+  .work-card:nth-child(1){width:64vw}.work-card:nth-child(2){width:38vw;justify-self:end}.work-card:nth-child(3){width:50vw}.work-card:nth-child(4){width:38vw;justify-self:end}
+  .work-media{border:0;background:#111}.work-card>a{padding-top:10px;font-size:10px}
+
+  .brand-index{height:1850px;min-height:1850px;background:var(--master-paper);color:var(--master-ink)}
+  .brands-services{position:absolute;inset:0;grid-column:auto}
+  .brands-services>h2{position:absolute;top:150px;left:43vw;font-size:82px;line-height:.84}
+  .brand-lines{position:absolute;top:430px;left:47vw;width:46vw;margin:0;gap:18px 100px}
+  .brand-lines p,.service-list p{font-size:10px}
+  .service-flow{position:absolute;top:940px;left:27vw;margin:0}
+  .service-flow h2{font-size:82px;line-height:.84}.service-list{margin-top:44px;margin-left:25vw;gap:14px}
+
+  .contact-flow{height:980px;min-height:980px;background:var(--master-ink);color:var(--master-paper)}
+  .contact-flow>h2{position:absolute;top:180px;left:18vw;margin:0;font-size:96px;line-height:.84}
+  .contact-form{position:absolute;top:480px;left:18vw;width:48vw;margin:0;grid-column:auto}
+  .contact-form label{margin-top:10px}.contact-form input,.contact-form textarea{color:var(--master-paper);border-bottom-color:#676b68}
+  .contact-form button{background:var(--master-paper);color:var(--master-ink)}
+  .contact-form>p{min-height:20px;margin-top:12px;font-size:11px}
+  .site-footer{height:128px;padding:24px 3vw;background:var(--master-paper);color:var(--master-ink)}
+  .site-footer strong{font-size:72px}
+}
+
 /* Desktop master: one continuous editorial space. The approved HTML positions
    stay fixed while the shared WebGL organism changes behind them. */
 @media(min-width:801px){
@@ -91,7 +156,7 @@
   .home-hero h1{grid-column:1/-1;align-self:end;margin:0 0 100px;font-size:clamp(154px,17.1vw,246px);line-height:.68;letter-spacing:-.092em;white-space:nowrap}
   .home-hero h1 span{display:inline}
   .home-hero h1 span:last-child{margin-left:0;color:inherit;-webkit-text-stroke:0}
-  .home-hero .hero-statement{grid-column:auto;position:absolute;right:15vw;bottom:62px;width:500px;margin:0;font-size:clamp(26px,2.1vw,32px);line-height:.98}
+  .home-hero .hero-statement{grid-column:auto;position:absolute;right:16vw;bottom:64px;width:560px;margin:0;font-size:clamp(26px,2.1vw,32px);line-height:.98}
   .home-hero .hero-meta{bottom:24px}
 
   .success-stories{
