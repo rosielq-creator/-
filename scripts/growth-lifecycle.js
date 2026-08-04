@@ -30,6 +30,7 @@ export function mountGrowthLifecycle({ root = document, viewport = window } = {}
     organism.style.setProperty("--growth-local", state.local);
     organism.style.setProperty("--growth-global", state.global);
     root.documentElement.style.setProperty("--growth-progress", state.global);
+    root.dispatchEvent(new CustomEvent("gt:growth", { detail: state }));
   };
   const request = () => { if (!frame) frame = viewport.requestAnimationFrame(render); };
   viewport.addEventListener("scroll", request, { passive: true });

@@ -9,9 +9,12 @@ for (const page of [home, maya]) {
   assert.match(page, /data-site-shell/, "expected the shared site shell");
   assert.match(page, /data-language="en"/, "expected an English language control");
   assert.match(page, /data-language="zh"/, "expected a Chinese language control");
-  assert.doesNotMatch(page, /<canvas\b/i, "site pages must remain semantic HTML");
   assert.match(page, /styles\/site-shell\.css/, "expected shared shell styling");
 }
+
+assert.match(home, /<canvas[^>]*data-growth-webgl[^>]*><\/canvas>/i, "expected one decorative Three.js surface");
+assert.match(home, /data-growth-organism[^>]*aria-hidden="true"/i, "the WebGL enhancement must stay outside the accessibility tree");
+assert.doesNotMatch(maya, /<canvas\b/i, "the profile page remains semantic HTML only");
 
 assert.match(home, /type="module" src="scripts\/home\.js/);
 assert.match(maya, /type="module" src="scripts\/maya-profile\.js/);
