@@ -22,30 +22,36 @@
   </header>
 
   <main id="main">
-    <section class="home-hero" aria-labelledby="hero-title">
+    <div class="growth-stage" data-growth-organism data-stage="seed" aria-hidden="true">
+      <div class="growth-form"><b class="growth-core"></b><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+    <section class="home-hero growth-chapter growth-hero" data-growth-stage="seed" aria-labelledby="hero-title">
       <p class="section-label" data-copy="hero.eyebrow">AI ARTISTS / CREATIVE PRODUCTION</p>
-      <h1 id="hero-title" data-copy="hero.title">GreenTomato</h1>
+      <h1 id="hero-title"><span>Green</span><span>Tomato</span></h1>
       <p class="hero-statement" data-copy="hero.statement">We build identities, images and worlds for culture-shaping brands.</p>
       <div class="hero-meta" aria-hidden="true"><span>Hong Kong</span><span>Global / 2026</span></div>
     </section>
 
-    <section id="about" class="home-about" aria-labelledby="about-title">
+    <section id="about" class="home-about growth-chapter growth-about" data-growth-stage="sprout" aria-labelledby="about-title">
       <p class="section-label">01 / POSITION</p>
       <h2 id="about-title" data-copy="about.title">Human taste.<br>Machine possibility.</h2>
       <p class="about-body" data-copy="about.body">We represent next-generation artists and create AI-native campaigns with a human point of view.</p>
       <p class="about-aside">Technology expands what can be made.<br>People decide what deserves to exist.</p>
     </section>
 
-    <section id="artists" class="artist-index" aria-labelledby="artists-title">
+    <section id="artists" class="artist-index growth-chapter" data-growth-stage="branches" aria-labelledby="artists-title">
       <header class="section-intro"><p class="section-label">02 / ARTISTS</p><h2 id="artists-title">Artists shaping<br>new realities.</h2></header>
-      <a href="maya.html" class="artist-entry"><span>01</span><strong>Maya</strong><small>Luxury fashion / art</small><i>↗</i></a>
-      <a href="amber.html" class="artist-entry"><span>02</span><strong>Amber</strong><small>Music / fashion</small><i>↗</i></a>
-      <a href="ooona.html" class="artist-entry"><span>03</span><strong>Ooona</strong><small>Beauty / wellness</small><i>↗</i></a>
-      <a href="noah.html" class="artist-entry"><span>04</span><strong>Noah</strong><small>Film / fashion</small><i>↗</i></a>
-      <a href="mario.html" class="artist-entry"><span>05</span><strong>Mario</strong><small>Lifestyle / sport</small><i>↗</i></a>
+      <div class="artist-grid">
+        <a href="maya.html" class="artist-card"><div class="artist-media"><span>Portrait pending</span></div><p><strong>Maya</strong><small>Luxury fashion / art</small></p></a>
+        <a href="amber.html" class="artist-card"><div class="artist-media"><span>Portrait pending</span></div><p><strong>Amber</strong><small>Music / fashion</small></p></a>
+        <a href="ooona.html" class="artist-card"><div class="artist-media"><span>Portrait pending</span></div><p><strong>Ooona</strong><small>Beauty / wellness</small></p></a>
+        <a href="noah.html" class="artist-card"><div class="artist-media"><span>Portrait pending</span></div><p><strong>Noah</strong><small>Film / fashion</small></p></a>
+        <a href="mario.html" class="artist-card"><div class="artist-media"><span>Portrait pending</span></div><p><strong>Mario</strong><small>Lifestyle / sport</small></p></a>
+      </div>
+      <a class="index-link" href="artists.html">View all artists <span>↗</span></a>
     </section>
 
-    <section id="work" class="success-stories" aria-labelledby="work-title">
+    <section id="work" class="success-stories growth-chapter" data-growth-stage="bloom" aria-labelledby="work-title">
       <header class="section-intro work-intro"><p class="section-label">03 / SUCCESS STORIES</p><h2 id="work-title">Selected work,<br>made to move.</h2></header>
       <article class="work-card">
         <button class="work-media" type="button" data-media-toggle aria-label="Play ChillGOOD video"><video muted loop playsinline preload="metadata" poster="assets/work/takoyaki-poster.jpg"><source src="assets/work/web-video/takoyaki.web.mp4" type="video/mp4"></video><span>Play</span></button>
@@ -63,6 +69,7 @@
         <button class="work-media" type="button" data-media-toggle aria-label="Play MGM Macau video"><video muted loop playsinline preload="metadata" poster="assets/work/mgm-01-poster.jpg"><source src="assets/work/web-video/mgm-01.web.mp4" type="video/mp4"></video><span>Play</span></button>
         <div class="work-caption"><p>Hospitality / 2026</p><h3>MGM Macau</h3><a data-project-link href="v2-preview/case.html?brand=mgm">View project ↗</a></div>
       </article>
+      <a class="index-link work-index-link" href="work.html">View all work <span>↗</span></a>
     </section>
 
     <section id="brands" class="brand-index" aria-labelledby="brands-title">
@@ -80,7 +87,7 @@
       <div class="service-list"><p><span>01</span>AI talent casting</p><p><span>02</span>Character building</p><p><span>03</span>Content production</p><p><span>04</span>Campaign collaboration</p></div>
     </section>
 
-    <section id="contact" class="contact-flow" aria-labelledby="contact-title">
+    <section id="contact" class="contact-flow growth-chapter" data-growth-stage="seed-return" aria-labelledby="contact-title">
       <p class="section-label">06 / START A PROJECT</p>
       <h2 id="contact-title" data-copy="contact.title">Tell us your story</h2>
       <form class="contact-form" data-contact-form>

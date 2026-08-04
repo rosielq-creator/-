@@ -115,6 +115,10 @@ On mobile, Maya is smaller and edge-aligned, and may leave the frame entirely wh
 
 ## Visual System
 
+### Brand Growth Organism
+
+The silver background object is a meaningful brand-growth system rather than decoration. Roots represent AI technology, human taste, data, and talent; the trunk represents GreenTomato's production engine; branches represent the expanding Artists, Work, Brands, and Services businesses; abstract metallic crowns represent finished work and commercial outcomes; a final seed at Contact suggests the next collaboration. The organism combines liquid metal, photographic-film membranes, and translucent crystal. It must remain abstract rather than becoming a literal botanical tree or realistic flower.
+
 - The static layout follows By Monolog as the primary structural reference: header proportions, display-type scale, asymmetric positioning, whitespace cadence, artist index treatment, and medium-format Success Stories rhythm should be reproduced closely rather than loosely interpreted.
 - Essential is the motion reference only: the later motion pass may add a moving 3D underlay, typographic decomposition, media hand-offs, and scroll-linked transitions without disturbing the By Monolog-derived static composition.
 - The base reads as cool editorial paper with sharp dark type. Color comes primarily from authentic project media; do not add decorative AI gradients, rainbow blobs, glass cards, neon accents, or template-style color panels.
