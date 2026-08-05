@@ -1,148 +1,118 @@
 import * as THREE from "./vendor/three.module.js";
 
-const STAGES = ["seed", "sprout", "branches", "bloom", "crystal", "seed-return"];
-const COMPOSITIONS = {
-  seed: { x: 0.29, y: 0.03, scale: 0.61, rotation: -0.08 },
-  sprout: { x: 0.24, y: 0.02, scale: 0.79, rotation: 0.02 },
-  branches: { x: 0.27, y: -0.01, scale: 0.87, rotation: -0.015 },
-  bloom: { x: 0.18, y: 0.01, scale: 1.05, rotation: 0.025 },
-  crystal: { x: 0.27, y: -0.01, scale: 0.77, rotation: -0.02 },
-  "seed-return": { x: 0.31, y: 0.01, scale: 0.65, rotation: 0.055 }
-};
+const VERTEX_SHADER = `
+  varying vec2 vUv;
+  void main() {
+    vUv = uv;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+  }
+`;
 
-const clamp = (value) => Math.max(0, Math.min(1, value));
-const ease = (value) => 1 - Math.pow(1 - clamp(value), 3);
+const FRAGMENT_SHADER = `
+  uniform sampler2D map;
+  uniform float backgroundKey;
+  varying vec2 vUv;
+  void main() {
+    vec4 texel = texture2D(map, vUv);
+    float luminance = dot(texel.rgb, vec3(0.2126, 0.7152, 0.0722));
+    float blackAlpha = smoothstep(0.08, 0.20, luminance);
+    float whiteAlpha = smoothstep(0.20, 0.38, 1.0 - luminance);
+    float alpha = mix(blackAlpha, whiteAlpha, backgroundKey) * texel.a;
+    if (alpha < 0.01) discard;
+    gl_FragColor = vec4(texel.rgb, alpha);
+  }
+`;
 
-export function mountGrowthThree({ root = document } = {}) {
+export async function mountGrowthThree({ root = document } = {}) {
   const canvas = root.querySelector("[data-growth-webgl]");
   if (!canvas || !window.WebGLRenderingContext) return () => {};
 
+  const response = await fetch("data/plant-composition-v2.json");
+  if (!response.ok) throw new Error(`Plant composition unavailable: ${response.status}`);
+  const composition = await response.json();
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: "high-performance" });
   renderer.setClearColor(0x000000, 0);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
+
   const scene = new THREE.Scene();
-  const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
-  camera.position.z = 4;
+  const camera = new THREE.OrthographicCamera(0, innerWidth, 0, innerHeight, -10, 10);
+  camera.position.z = 2;
   const loader = new THREE.TextureLoader();
   const meshes = new Map();
+  let frame = 0;
 
-  STAGES.forEach((name, index) => {
-    const assetName = ["bloom", "seed-return"].includes(name) ? `${name}-alpha` : name;
-    const texture = loader.load(`assets/growth/hd/${assetName}.png`, requestRender);
+  const requestRender = () => {
+    if (!frame) frame = requestAnimationFrame(render);
+  };
+
+  for (const [index, plant] of composition.plants.entries()) {
+    const texture = loader.load(plant.source, requestRender);
     texture.colorSpace = THREE.SRGBColorSpace;
     texture.minFilter = THREE.LinearMipmapLinearFilter;
     texture.magFilter = THREE.LinearFilter;
+    texture.generateMipmaps = true;
     const material = new THREE.ShaderMaterial({
       uniforms: {
         map: { value: texture },
-        opacity: { value: index === 0 ? 1 : 0 },
-        whiteKey: { value: 0 },
-        brightness: { value: name === "bloom" ? 2.15 : name === "seed-return" ? 1.75 : 1.18 }
+        backgroundKey: { value: plant.background[0] > 0.5 ? 1 : 0 }
       },
-      vertexShader: `
-        varying vec2 vUv;
-        void main() {
-          vUv = uv;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-      `,
-      fragmentShader: `
-        uniform sampler2D map;
-        uniform float opacity;
-        uniform float whiteKey;
-        uniform float brightness;
-        varying vec2 vUv;
-        void main() {
-          vec4 texel = texture2D(map, vUv);
-          vec3 color = texel.rgb;
-          float luminance = dot(color, vec3(0.2126, 0.7152, 0.0722));
-          float blackKeyAlpha = smoothstep(0.018, 0.12, luminance);
-          float whiteDistance = 1.0 - min(min(color.r, color.g), color.b);
-          float whiteKeyAlpha = smoothstep(0.018, 0.15, whiteDistance);
-          float alpha = mix(blackKeyAlpha, whiteKeyAlpha, whiteKey) * texel.a * opacity;
-          if (alpha < 0.008) discard;
-          gl_FragColor = vec4(min(color * brightness, vec3(1.0)), alpha);
-        }
-      `,
+      vertexShader: VERTEX_SHADER,
+      fragmentShader: FRAGMENT_SHADER,
       transparent: true,
       depthWrite: false,
-      blending: THREE.AdditiveBlending,
       toneMapped: false
     });
-    const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 0.888), material);
+    const mesh = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), material);
     mesh.renderOrder = index;
     scene.add(mesh);
-    meshes.set(name, mesh);
-  });
+    meshes.set(plant.id, mesh);
+  }
 
-  let state = { stage: "seed", index: 0, local: 0, global: 0 };
-  let frame = 0;
-  let pointerX = 0;
-  let pointerY = 0;
+  function layout() {
+    const viewportWidth = canvas.clientWidth;
+    const mode = viewportWidth <= 800 ? "mobile" : "desktop";
+    const baseWidth = composition[mode].width;
+    const scale = viewportWidth / baseWidth;
+    for (const [id, mesh] of meshes) {
+      const box = composition[mode].placements[id];
+      const width = box.width * scale;
+      const height = box.height * scale;
+      mesh.scale.set(width, height, 1);
+      mesh.position.set((box.x + box.width / 2) * scale, -(box.y + box.height / 2) * scale, 0);
+    }
+  }
 
   function resize() {
     const width = canvas.clientWidth;
     const height = canvas.clientHeight;
-    const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
-    renderer.setPixelRatio(pixelRatio);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.setSize(width, height, false);
-    camera.left = -width / height;
-    camera.right = width / height;
-    camera.top = 1;
-    camera.bottom = -1;
+    camera.left = 0;
+    camera.right = width;
+    camera.top = 0;
+    camera.bottom = -height;
     camera.updateProjectionMatrix();
+    layout();
     requestRender();
-  }
-
-  function applyComposition(mesh, composition, progress, active) {
-    const viewportAspect = Math.max(1, canvas.clientWidth / canvas.clientHeight);
-    const scale = composition.scale * (1 + (active ? Math.sin(progress * Math.PI) * 0.035 : 0));
-    mesh.scale.set(scale * viewportAspect, scale, 1);
-    mesh.position.set(composition.x * viewportAspect + pointerX * 0.025, composition.y + pointerY * 0.018, 0);
-    mesh.rotation.z = composition.rotation + pointerX * 0.012;
   }
 
   function render() {
     frame = 0;
-    const transition = ease(clamp((state.local - 0.66) / 0.34));
-    const nextIndex = Math.min(STAGES.length - 1, state.index + 1);
-    meshes.forEach((mesh, name) => {
-      const index = STAGES.indexOf(name);
-      mesh.material.uniforms.opacity.value = index === state.index ? 1 - transition : index === nextIndex ? transition : 0;
-      applyComposition(mesh, COMPOSITIONS[name], state.local, index === state.index);
-    });
+    camera.position.y = -window.scrollY;
     renderer.render(scene, camera);
   }
 
-  function requestRender() {
-    if (!frame) frame = requestAnimationFrame(render);
-  }
-
-  function onGrowth(event) {
-    state = event.detail;
-    requestRender();
-  }
-
-  function onPointer(event) {
-    pointerX = event.clientX / innerWidth - 0.5;
-    pointerY = event.clientY / innerHeight - 0.5;
-    requestRender();
-  }
-
-  root.addEventListener("gt:growth", onGrowth);
+  const onScroll = () => requestRender();
+  window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", resize, { passive: true });
-  if (matchMedia("(pointer:fine)").matches && !matchMedia("(prefers-reduced-motion:reduce)").matches) {
-    window.addEventListener("pointermove", onPointer, { passive: true });
-  }
   resize();
 
   return () => {
-    root.removeEventListener("gt:growth", onGrowth);
+    window.removeEventListener("scroll", onScroll);
     window.removeEventListener("resize", resize);
-    window.removeEventListener("pointermove", onPointer);
     meshes.forEach((mesh) => {
       mesh.geometry.dispose();
-      mesh.material.map?.dispose();
+      mesh.material.uniforms.map.value.dispose();
       mesh.material.dispose();
     });
     renderer.dispose();
