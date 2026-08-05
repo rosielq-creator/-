@@ -1,10 +1,6 @@
 import { createLanguageController } from "./i18n.js";
-import { mountGrowthLifecycle } from "./growth-lifecycle.js";
-import { mountGrowthThree } from "./growth-three.js";
 
 createLanguageController();
-mountGrowthLifecycle();
-mountGrowthThree();
 
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
 if (!reducedMotion.matches) {

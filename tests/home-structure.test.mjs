@@ -15,8 +15,11 @@ for (const page of [home, maya]) {
   assert.match(page, /styles\/site-shell\.css/, "expected shared shell styling");
 }
 
-assert.match(home, /<canvas[^>]*data-growth-webgl[^>]*><\/canvas>/i, "expected one decorative Three.js surface");
-assert.match(home, /data-growth-organism[^>]*aria-hidden="true"/i, "the WebGL enhancement must stay outside the accessibility tree");
+assert.doesNotMatch(home, /<canvas\b|data-growth-webgl|data-growth-organism/i, "the approved static page must not mount a WebGL lifecycle surface");
+assert.doesNotMatch(homeScript, /growth-three|mountGrowthThree|mountGrowthLifecycle/i, "the approved static page must not initialize 3D or lifecycle transitions");
+for (const stage of ["seed", "sprout", "branches", "bloom", "crystal", "seed-return"]) {
+  assert.match(home, new RegExp(`<img[^>]+class="chapter-plant"[^>]+data-plant="${stage}"`, "i"), `expected a static ${stage} plant image`);
+}
 assert.doesNotMatch(maya, /<canvas\b/i, "the profile page remains semantic HTML only");
 
 assert.match(home, /type="module" src="scripts\/home\.js/);
@@ -40,8 +43,7 @@ assert.match(css, /\.reference-home/);
 assert.match(css, /\.success-stories/);
 assert.match(css, /aspect-ratio:\s*16\s*\/\s*9/);
 assert.doesNotMatch(css, /ambient-/);
-assert.match(home, /data-growth-organism/, "expected one persistent lifecycle organism");
-assert.match(home, /class="growth-surface"/, "expected one shared visual surface behind every chapter");
+assert.equal((home.match(/class="chapter-plant"/g) || []).length, 6, "approved layout has six static chapter plants");
 assert.equal((home.match(/class="chapter-number"/g) || []).length, 6, "approved layout has six numbered chapters");
 assert.match(home, /class="[^\"]*hero-seed[^\"]*"/, "hero needs the approved seed composition");
 assert.match(home, /class="[^\"]*artist-grid[^\"]*"/, "artists need the approved five-slot composition");
