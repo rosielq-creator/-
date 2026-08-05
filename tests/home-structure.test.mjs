@@ -15,11 +15,8 @@ for (const page of [home, maya]) {
   assert.match(page, /styles\/site-shell\.css/, "expected shared shell styling");
 }
 
-assert.doesNotMatch(home, /<canvas\b|data-growth-webgl|data-growth-organism/i, "the approved static page must not mount a WebGL lifecycle surface");
-assert.doesNotMatch(homeScript, /growth-three|mountGrowthThree|mountGrowthLifecycle/i, "the approved static page must not initialize 3D or lifecycle transitions");
-for (const stage of ["seed", "sprout", "branches", "bloom", "crystal", "seed-return"]) {
-  assert.match(home, new RegExp(`<img[^>]+class="chapter-plant"[^>]+data-plant="${stage}"`, "i"), `expected a static ${stage} plant image`);
-}
+assert.match(home, /<canvas[^>]*data-growth-webgl[^>]*><\/canvas>/i, "expected one decorative Three.js surface");
+assert.match(home, /data-growth-organism[^>]*aria-hidden="true"/i, "the WebGL enhancement must stay outside the accessibility tree");
 assert.doesNotMatch(maya, /<canvas\b/i, "the profile page remains semantic HTML only");
 
 assert.match(home, /type="module" src="scripts\/home\.js/);
@@ -43,7 +40,8 @@ assert.match(css, /\.reference-home/);
 assert.match(css, /\.success-stories/);
 assert.match(css, /aspect-ratio:\s*16\s*\/\s*9/);
 assert.doesNotMatch(css, /ambient-/);
-assert.equal((home.match(/class="chapter-plant"/g) || []).length, 6, "approved layout has six static chapter plants");
+assert.match(home, /data-growth-organism/, "expected one persistent lifecycle organism");
+assert.match(home, /class="growth-surface"/, "expected one shared visual surface behind every chapter");
 assert.equal((home.match(/class="chapter-number"/g) || []).length, 6, "approved layout has six numbered chapters");
 assert.match(home, /class="[^\"]*hero-seed[^\"]*"/, "hero needs the approved seed composition");
 assert.match(home, /class="[^\"]*artist-grid[^\"]*"/, "artists need the approved five-slot composition");
@@ -84,8 +82,8 @@ assert.match(home, /styles\/reference-master\.css/, "the final reference master 
 for (const height of [594, 641, 818, 804, 788, 506]) {
   assert.match(masterCss, new RegExp(`height:${height}px\\s*!important`), `expected approved ${height}px chapter height`);
 }
-assert.match(masterCss, /\.home-hero\s*\{[^}]*background:#000/s, "hero must match the native seed background");
-assert.match(masterCss, /\.home-about\s*\{[^}]*background:#f7f4ef/s, "about must match the native sprout background");
+assert.match(masterCss, /\.home-hero\s*\{[^}]*background:var\(--ink\)/s, "hero must use the approved black field");
+assert.match(masterCss, /\.home-about\s*\{[^}]*background:var\(--paper\)/s, "about must use the approved paper field");
 assert.match(masterCss, /\.artist-card:nth-child\(1\)\s*\{[^}]*left:586px;[^}]*top:52px/s, "artist grid must retain the first approved coordinate");
 assert.match(masterCss, /\.work-card:nth-child\(4\)\s*\{[^}]*right:137px;[^}]*top:520px/s, "work grid must retain the fourth approved coordinate");
 assert.match(masterCss, /@media \(max-width:800px\)/, "mobile reference treatment is required");
