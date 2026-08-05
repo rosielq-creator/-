@@ -84,8 +84,8 @@ assert.match(home, /styles\/reference-master\.css/, "the final reference master 
 for (const height of [594, 641, 818, 804, 788, 506]) {
   assert.match(masterCss, new RegExp(`height:${height}px\\s*!important`), `expected approved ${height}px chapter height`);
 }
-assert.match(masterCss, /\.home-hero\s*\{[^}]*background:var\(--ink\)/s, "hero must use the approved black field");
-assert.match(masterCss, /\.home-about\s*\{[^}]*background:var\(--paper\)/s, "about must use the approved paper field");
+assert.match(masterCss, /\.home-hero\s*\{[^}]*background:#000/s, "hero must match the native seed background");
+assert.match(masterCss, /\.home-about\s*\{[^}]*background:#f7f4ef/s, "about must match the native sprout background");
 assert.match(masterCss, /\.artist-card:nth-child\(1\)\s*\{[^}]*left:586px;[^}]*top:52px/s, "artist grid must retain the first approved coordinate");
 assert.match(masterCss, /\.work-card:nth-child\(4\)\s*\{[^}]*right:137px;[^}]*top:520px/s, "work grid must retain the fourth approved coordinate");
 assert.match(masterCss, /@media \(max-width:800px\)/, "mobile reference treatment is required");
