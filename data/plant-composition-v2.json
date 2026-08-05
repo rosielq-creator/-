@@ -9,11 +9,15 @@
   "plants": [
     {
       "id": "seed",
-      "source": "assets/growth/source-v2/01-seed.png",
+      "source": "assets/growth/source-v2/closed-seed-silver.png",
       "nativeWidth": 2048,
       "nativeHeight": 1783,
-      "background": [0, 0, 0],
-      "sha256": "5da5c92a645f0d44ab559886a763bbd4f090c84b366397e7f401c2d7e76edb75",
+      "background": [
+        0,
+        0,
+        0
+      ],
+      "sha256": "a97a9875763e9dccc1094152ab61486e8e14002fe039c850c3f7cff4c1a83515",
       "upscaleAllowed": false
     },
     {
@@ -21,7 +25,11 @@
       "source": "assets/growth/source-v2/02-sprout.png",
       "nativeWidth": 1365,
       "nativeHeight": 2048,
-      "background": [0.973, 0.961, 0.941],
+      "background": [
+        0.973,
+        0.961,
+        0.941
+      ],
       "sha256": "8cf178efe384c49253cce62fba1ae94d8c88d67ac492a88bda68582d39a7a55f",
       "upscaleAllowed": false
     },
@@ -30,7 +38,11 @@
       "source": "assets/growth/source-v2/03-branches.png",
       "nativeWidth": 1074,
       "nativeHeight": 2048,
-      "background": [0, 0, 0],
+      "background": [
+        0,
+        0,
+        0
+      ],
       "sha256": "2b98a2b1982f472bc3083e4e46ee5a7acf1cb6c67bab82a327956cf309ff0a16",
       "upscaleAllowed": false
     },
@@ -39,7 +51,11 @@
       "source": "assets/growth/source-v2/04-bloom.png",
       "nativeWidth": 2048,
       "nativeHeight": 2048,
-      "background": [0.922, 0.91, 0.89],
+      "background": [
+        0.922,
+        0.91,
+        0.89
+      ],
       "sha256": "70a5cf243266723cf198fd3367dfff0f06dbb2577476c71fb7d676c3782660d2",
       "upscaleAllowed": false
     },
@@ -48,7 +64,11 @@
       "source": "assets/growth/source-v2/05-crystal.png",
       "nativeWidth": 1024,
       "nativeHeight": 2048,
-      "background": [0, 0, 0],
+      "background": [
+        0,
+        0,
+        0
+      ],
       "sha256": "acbe02694cfd6f7ad78cd9f28bf67977dc09851a2b7da0b86d01c73f37e07af4",
       "upscaleAllowed": false
     },
@@ -57,7 +77,11 @@
       "source": "assets/growth/source-v2/06-seed-return.png",
       "nativeWidth": 1024,
       "nativeHeight": 2048,
-      "background": [0.953, 0.949, 0.933],
+      "background": [
+        0.953,
+        0.949,
+        0.933
+      ],
       "sha256": "728e72a0ed83f3d1d63c488676ffe993d1d425dbfbeda8d6f25a9806a1b528b6",
       "upscaleAllowed": false
     }
@@ -67,37 +91,91 @@
     "height": 4320,
     "scaleFromMaster": 2.8125,
     "placements": {
-      "seed": { "x": 807, "y": 126, "width": 409, "height": 328 },
-      "sprout": { "x": 503, "y": 565, "width": 633, "height": 892 },
-      "branches": { "x": 128, "y": 1243, "width": 1338, "height": 866 },
-      "bloom": { "x": 294, "y": 2083, "width": 1155, "height": 811 },
-      "crystal": { "x": 569, "y": 2883, "width": 715, "height": 835 },
-      "seed-return": { "x": 519, "y": 3701, "width": 820, "height": 460 }
+      "seed": {
+        "x": 807,
+        "y": 126,
+        "width": 409,
+        "height": 328
+      },
+      "sprout": {
+        "x": 503,
+        "y": 565,
+        "width": 633,
+        "height": 892
+      },
+      "branches": {
+        "x": 128,
+        "y": 1243,
+        "width": 1338,
+        "height": 866
+      },
+      "bloom": {
+        "x": 294,
+        "y": 2083,
+        "width": 1155,
+        "height": 811
+      },
+      "crystal": {
+        "x": 569,
+        "y": 2883,
+        "width": 715,
+        "height": 835
+      },
+      "seed-return": {
+        "x": 519,
+        "y": 3701,
+        "width": 820,
+        "height": 460
+      }
     },
     "joins": [
       {
         "from": "sprout",
         "to": "branches",
-        "master": { "x": 310, "y": 459 },
-        "desktop": { "x": 871.875, "y": 1290.9375 }
+        "master": {
+          "x": 310,
+          "y": 459
+        },
+        "desktop": {
+          "x": 871.875,
+          "y": 1290.9375
+        }
       },
       {
         "from": "branches",
         "to": "bloom",
-        "master": { "x": 303, "y": 750 },
-        "desktop": { "x": 852.1875, "y": 2109.375 }
+        "master": {
+          "x": 303,
+          "y": 750
+        },
+        "desktop": {
+          "x": 852.1875,
+          "y": 2109.375
+        }
       },
       {
         "from": "bloom",
         "to": "crystal",
-        "master": { "x": 334, "y": 1036 },
-        "desktop": { "x": 939.375, "y": 2913.75 }
+        "master": {
+          "x": 334,
+          "y": 1036
+        },
+        "desktop": {
+          "x": 939.375,
+          "y": 2913.75
+        }
       },
       {
         "from": "crystal",
         "to": "seed-return",
-        "master": { "x": 339, "y": 1316 },
-        "desktop": { "x": 953.4375, "y": 3701.25 }
+        "master": {
+          "x": 339,
+          "y": 1316
+        },
+        "desktop": {
+          "x": 953.4375,
+          "y": 3701.25
+        }
       }
     ]
   },
@@ -105,18 +183,68 @@
     "width": 390,
     "height": 3476,
     "placements": {
-      "seed": { "x": 134, "y": 55, "width": 330, "height": 190 },
-      "sprout": { "x": 90, "y": 420, "width": 380, "height": 590 },
-      "branches": { "x": -25, "y": 875, "width": 650, "height": 710 },
-      "bloom": { "x": 190, "y": 1600, "width": 520, "height": 520 },
-      "crystal": { "x": 190, "y": 2260, "width": 360, "height": 620 },
-      "seed-return": { "x": 120, "y": 2860, "width": 360, "height": 520 }
+      "seed": {
+        "x": 134,
+        "y": 55,
+        "width": 330,
+        "height": 190
+      },
+      "sprout": {
+        "x": 90,
+        "y": 420,
+        "width": 380,
+        "height": 590
+      },
+      "branches": {
+        "x": -25,
+        "y": 875,
+        "width": 650,
+        "height": 710
+      },
+      "bloom": {
+        "x": 190,
+        "y": 1600,
+        "width": 520,
+        "height": 520
+      },
+      "crystal": {
+        "x": 190,
+        "y": 2260,
+        "width": 360,
+        "height": 620
+      },
+      "seed-return": {
+        "x": 120,
+        "y": 2860,
+        "width": 360,
+        "height": 520
+      }
     },
     "joins": [
-      { "from": "sprout", "to": "branches", "x": 264, "y": 894 },
-      { "from": "branches", "to": "bloom", "x": 258, "y": 1584 },
-      { "from": "bloom", "to": "crystal", "x": 268, "y": 2304 },
-      { "from": "crystal", "to": "seed-return", "x": 270, "y": 2924 }
+      {
+        "from": "sprout",
+        "to": "branches",
+        "x": 264,
+        "y": 894
+      },
+      {
+        "from": "branches",
+        "to": "bloom",
+        "x": 258,
+        "y": 1584
+      },
+      {
+        "from": "bloom",
+        "to": "crystal",
+        "x": 268,
+        "y": 2304
+      },
+      {
+        "from": "crystal",
+        "to": "seed-return",
+        "x": 270,
+        "y": 2924
+      }
     ],
     "note": "Independent composition baseline; final x coordinates require 390px overlay QA because no separate approved mobile master exists."
   }

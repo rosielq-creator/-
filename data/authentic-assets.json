@@ -1,21 +1,122 @@
 [
-  {"path":"assets/work/takoyaki-poster.jpg","kind":"case-poster","source":"official-client","approved":true},
-  {"path":"assets/work/web-video/takoyaki.web.mp4","kind":"case-video","source":"official-client","approved":true},
-  {"path":"assets/work/peninsula/peninsula-fathers-day-key-visual.jpg","kind":"case-poster","source":"official-client","approved":true},
-  {"path":"assets/work/web-video/peninsula.web.mp4","kind":"case-video","source":"official-client","approved":true},
-  {"path":"assets/work/octopus-cover.jpg","kind":"case-poster","source":"official-client","approved":true},
-  {"path":"assets/work/web-video/octopus.web.mp4","kind":"case-video","source":"official-client","approved":true},
-  {"path":"assets/work/mgm-01-poster.jpg","kind":"case-poster","source":"official-client","approved":true},
-  {"path":"assets/work/web-video/mgm-01.web.mp4","kind":"case-video","source":"official-client","approved":true},
-  {"path":"assets/growth/seed-clean.png","kind":"design-asset","source":"commissioned-motion","approved":true},
-  {"path":"assets/growth/sprout-clean.png","kind":"design-asset","source":"commissioned-motion","approved":true},
-  {"path":"assets/growth/branches-clean.png","kind":"design-asset","source":"commissioned-motion","approved":true},
-  {"path":"assets/growth/bloom-clean.png","kind":"design-asset","source":"commissioned-motion","approved":true},
-  {"path":"assets/growth/crystal-clean.png","kind":"design-asset","source":"commissioned-motion","approved":true},
-  {"path":"assets/growth/seed-return-clean.png","kind":"design-asset","source":"commissioned-motion","approved":true},
-  {"path":"assets/profiles/maya/black-tailoring.png","kind":"canonical-artist-portrait","source":"user-original","approved":true},
-  {"path":"assets/profiles/amber/night-portrait.png","kind":"canonical-artist-portrait","source":"user-original","approved":true},
-  {"path":"assets/profiles/ooona/hero.png","kind":"canonical-artist-portrait","source":"user-original","approved":true},
-  {"path":"assets/profiles/noah/black-portrait.png","kind":"canonical-artist-portrait","source":"user-original","approved":true},
-  {"path":"assets/mario-portrait.png","kind":"canonical-artist-portrait","source":"user-original","approved":true}
+  {
+    "path": "assets/work/takoyaki-poster.jpg",
+    "kind": "case-poster",
+    "source": "official-client",
+    "approved": true
+  },
+  {
+    "path": "assets/work/web-video/takoyaki.web.mp4",
+    "kind": "case-video",
+    "source": "official-client",
+    "approved": true
+  },
+  {
+    "path": "assets/work/peninsula/peninsula-fathers-day-key-visual.jpg",
+    "kind": "case-poster",
+    "source": "official-client",
+    "approved": true
+  },
+  {
+    "path": "assets/work/web-video/peninsula.web.mp4",
+    "kind": "case-video",
+    "source": "official-client",
+    "approved": true
+  },
+  {
+    "path": "assets/work/octopus-cover.jpg",
+    "kind": "case-poster",
+    "source": "official-client",
+    "approved": true
+  },
+  {
+    "path": "assets/work/web-video/octopus.web.mp4",
+    "kind": "case-video",
+    "source": "official-client",
+    "approved": true
+  },
+  {
+    "path": "assets/work/mgm-01-poster.jpg",
+    "kind": "case-poster",
+    "source": "official-client",
+    "approved": true
+  },
+  {
+    "path": "assets/work/web-video/mgm-01.web.mp4",
+    "kind": "case-video",
+    "source": "official-client",
+    "approved": true
+  },
+  {
+    "path": "assets/growth/seed-clean.png",
+    "kind": "design-asset",
+    "source": "commissioned-motion",
+    "approved": true
+  },
+  {
+    "path": "assets/growth/source-v2/closed-seed-silver.png",
+    "kind": "design-asset",
+    "source": "user-original",
+    "approved": true
+  },
+  {
+    "path": "assets/growth/sprout-clean.png",
+    "kind": "design-asset",
+    "source": "commissioned-motion",
+    "approved": true
+  },
+  {
+    "path": "assets/growth/branches-clean.png",
+    "kind": "design-asset",
+    "source": "commissioned-motion",
+    "approved": true
+  },
+  {
+    "path": "assets/growth/bloom-clean.png",
+    "kind": "design-asset",
+    "source": "commissioned-motion",
+    "approved": true
+  },
+  {
+    "path": "assets/growth/crystal-clean.png",
+    "kind": "design-asset",
+    "source": "commissioned-motion",
+    "approved": true
+  },
+  {
+    "path": "assets/growth/seed-return-clean.png",
+    "kind": "design-asset",
+    "source": "commissioned-motion",
+    "approved": true
+  },
+  {
+    "path": "assets/profiles/maya/black-tailoring.png",
+    "kind": "canonical-artist-portrait",
+    "source": "user-original",
+    "approved": true
+  },
+  {
+    "path": "assets/profiles/amber/night-portrait.png",
+    "kind": "canonical-artist-portrait",
+    "source": "user-original",
+    "approved": true
+  },
+  {
+    "path": "assets/profiles/ooona/hero.png",
+    "kind": "canonical-artist-portrait",
+    "source": "user-original",
+    "approved": true
+  },
+  {
+    "path": "assets/profiles/noah/black-portrait.png",
+    "kind": "canonical-artist-portrait",
+    "source": "user-original",
+    "approved": true
+  },
+  {
+    "path": "assets/mario-portrait.png",
+    "kind": "canonical-artist-portrait",
+    "source": "user-original",
+    "approved": true
+  }
 ]

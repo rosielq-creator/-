@@ -16,6 +16,10 @@ assert.deepEqual(
   ['seed', 'sprout', 'branches', 'bloom', 'crystal', 'seed-return'],
 );
 
+const seedPlant = contract.plants.find(({ id }) => id === "seed");
+assert.equal(seedPlant.source, "assets/growth/source-v2/closed-seed-silver.png", "seed must use the approved silver three-petal closed seed");
+assert.equal(seedPlant.sha256, "a97a9875763e9dccc1094152ab61486e8e14002fe039c850c3f7cff4c1a83515");
+
 for (const plant of contract.plants) {
   assert.match(plant.source, /^assets\/growth\/source-v2\/.+\.png$/);
   assert.ok(plant.nativeWidth > 0);
