@@ -6,7 +6,7 @@
   "description": "GTAI digital talent agency frontend prototype",
   "scripts": {
     "start": "node server.js",
-    "test": "node tests/home-structure.test.mjs && node tests/authentic-assets.test.mjs && node tests/growth-lifecycle.test.mjs && node tests/plant-source-contract.test.mjs && node tests/plant-webgl-layer.test.mjs && node tests/server-start.test.mjs"
+    "test": "node tests/home-structure.test.mjs && node tests/authentic-assets.test.mjs && node tests/growth-lifecycle.test.mjs && node tests/plant-source-contract.test.mjs && node tests/plant-webgl-layer.test.mjs && node tests/card-fidelity.test.mjs && node tests/server-start.test.mjs"
   },
   "engines": {
     "node": ">=20"

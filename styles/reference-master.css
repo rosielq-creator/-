@@ -44,7 +44,7 @@
   .artist-index .index-link { position:absolute !important; top:340px !important; left:0 !important; margin:0 !important; }
   .artist-grid { position:absolute !important; top:0 !important; right:0 !important; bottom:auto !important; left:0 !important; display:block !important; width:100% !important; height:818px !important; padding:0 !important; }
   .artist-card { position:absolute !important; width:232px !important; height:220px !important; aspect-ratio:auto !important; overflow:hidden; border:1px solid #d8d8d3 !important; background:#777 !important; }
-  .artist-card img { width:100%; height:100%; object-fit:cover; filter:grayscale(1) contrast(.82) brightness(.78) !important; opacity:.82; }
+  .artist-card img { width:100%; height:100%; object-fit:cover; filter:none !important; opacity:1; }
   .artist-card span { display:none; }
   .artist-card:nth-child(1) { left:586px; top:52px; }
   .artist-card:nth-child(2) { right:230px; top:52px; translate:0 !important; }
@@ -65,7 +65,7 @@
   .work-card:nth-child(3) { left:505px; top:520px; }
   .work-card:nth-child(4) { right:137px; top:520px; }
   .work-media { width:294px; height:180px; border:1px solid #d5d5cf !important; background:#7a7a78 !important; }
-  .work-media video { width:100%; height:100%; object-fit:cover; filter:grayscale(1) brightness(.62); opacity:.72; }
+  .work-media video { width:100%; height:100%; object-fit:cover; filter:none; opacity:1; }
   .work-media>span { z-index:2; color:#fff; }
   .work-card>a { display:none !important; }
 
@@ -130,7 +130,7 @@
   .artist-card { width:112px; height:105px; overflow:hidden; border:1px solid #ccc; }
   .artist-card:nth-child(3) { grid-column:1/-1; justify-self:center; }
   .artist-card:nth-child(even) { translate:0 !important; }
-  .artist-card img { width:100%; height:100%; object-fit:cover; filter:grayscale(1) brightness(.72); }
+  .artist-card img { width:100%; height:100%; object-fit:cover; filter:none !important; opacity:1; }
   .artist-card span { display:none; }
   .success-stories { height:720px; min-height:720px; background:var(--paper) !important; color:var(--ink) !important; }
   .success-stories::after { width:650px; height:570px; right:-190px; top:80px; background-image:url("../assets/growth/hd/bloom.png"); background-size:cover; }
@@ -141,7 +141,7 @@
   .success-stories .work-grid { position:absolute; right:18px; bottom:35px; left:18px; display:grid; grid-template-columns:repeat(2,150px); gap:26px 18px; }
   .work-card,.work-card:nth-child(n) { width:150px; }
   .work-media { width:150px; height:92px; background:#777; }
-  .work-media video { width:100%; height:100%; object-fit:cover; filter:grayscale(1) brightness(.62); }
+  .work-media video { width:100%; height:100%; object-fit:cover; filter:none; opacity:1; }
   .work-card>a { display:none; }
   .brand-index { height:620px; min-height:620px; background:var(--ink) !important; color:var(--paper) !important; }
   .brand-index::after { width:380px; height:500px; right:-85px; top:58px; background-image:url("../assets/growth/hd/crystal-alpha.png"); }
