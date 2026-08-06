@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 
 const contract = JSON.parse(
   await readFile(new URL('../data/plant-composition-v2.json', import.meta.url), 'utf8'),
@@ -38,5 +39,21 @@ for (const join of contract.desktop.joins) {
   assert.equal(join.desktop.x, join.master.x * contract.desktop.scaleFromMaster);
   assert.equal(join.desktop.y, join.master.y * contract.desktop.scaleFromMaster);
 }
+
+const suppliedPlantSources = [
+  'assets/growth/source-v2/02-sprout-4k.webp',
+  'assets/growth/source-v2/03-vine-4k.webp',
+];
+for (const source of suppliedPlantSources) {
+  assert.equal(existsSync(new URL(`../${source}`, import.meta.url)), true, `${source} must exist`);
+}
+
+const css = await readFile(new URL('../styles/reference-master.css', import.meta.url), 'utf8');
+assert.match(css, /\.home-about::after[^}]*02-sprout-4k-alpha\.png/s,
+  'section 02 must render the supplied transparent sprout');
+assert.match(css, /\.artist-index::after[^}]*03-vine-connected-v2-alpha\.png/s,
+  'section 03 must render the corrected large connected vine');
+assert.match(css, /\.artist-grid[^}]*z-index:6/s,
+  'Artist cards must cross above the continuous vine layer');
 
 console.log('plant source and anchor contract: ok');

@@ -1,9 +1,10 @@
 /* 1440px reference master. This is intentionally the final stylesheet. */
 @media (min-width: 801px) {
-  :root { --paper:#f3f3ef; --ink:#090d0d; --gutter:104px; }
+  :root { --paper:#f8f5f0; --ink:#090d0d; --gutter:104px; }
   html { background:var(--ink); overflow-x:hidden; }
   body.reference-home { margin:0; background:var(--ink); color:var(--paper); overflow-x:hidden; }
   .growth-stage { display:block !important; z-index:4; opacity:1 !important; }
+  .growth-stage[data-stage="sprout"], .growth-stage[data-stage="branches"] { opacity:0 !important; }
   .growth-surface { display:none !important; }
   .growth-chapter { display:block !important; box-sizing:border-box; min-height:0 !important; padding:38px var(--gutter) 30px !important; overflow:hidden; isolation:isolate; }
   .growth-chapter::after { display:none !important; }
@@ -32,17 +33,17 @@
   .home-hero .hero-meta { right:104px !important; bottom:38px !important; left:104px !important; font-size:7px !important; text-transform:uppercase; }
 
   .home-about { height:641px !important; background:var(--paper) !important; color:var(--ink) !important; }
-  .home-about::after { width:1180px !important; height:680px !important; right:25px !important; left:auto !important; top:-16px !important; background-image:url("../assets/growth/hd/sprout-alpha.png") !important; }
+  .home-about::after { display:block !important; width:720px !important; height:850px !important; right:118px !important; left:auto !important; top:-78px !important; background-image:url("../assets/growth/source-v2/02-sprout-4k-alpha.png") !important; background-size:contain !important; background-position:center bottom !important; mix-blend-mode:normal !important; filter:drop-shadow(0 18px 22px rgba(0,0,0,.14)) !important; }
   .home-about h2 { position:absolute !important; top:151px !important; left:104px !important; margin:0 !important; font-size:50px !important; line-height:.84 !important; letter-spacing:-.07em; }
   .home-about .about-body { position:absolute !important; top:309px !important; left:104px !important; margin:0 !important; font-size:12px !important; line-height:1.28 !important; }
 
   .artist-index { height:818px !important; background:var(--ink) !important; color:var(--paper) !important; }
-  .artist-index::after { width:1280px !important; height:900px !important; right:-120px !important; top:-95px !important; opacity:1 !important; background-image:url("../assets/growth/hd/branches-alpha.png") !important; }
+  .artist-index::after { display:block !important; width:860px !important; height:1460px !important; right:260px !important; top:-140px !important; opacity:1 !important; background-image:url("../assets/growth/source-v2/03-vine-connected-v2-alpha.png") !important; background-size:contain !important; background-position:center top !important; mix-blend-mode:normal !important; filter:drop-shadow(0 18px 22px rgba(0,0,0,.42)) !important; }
   .artist-index .section-intro { position:absolute !important; top:137px !important; left:104px !important; width:365px !important; margin:0 !important; }
   .artist-index .section-intro h2 { margin:0; font-size:54px !important; line-height:.84 !important; letter-spacing:-.065em; }
   .artist-index .section-intro>p { width:300px !important; margin-top:60px !important; font-size:12px; line-height:1.25; }
   .artist-index .index-link { position:absolute !important; top:340px !important; left:0 !important; margin:0 !important; }
-  .artist-grid { position:absolute !important; top:0 !important; right:0 !important; bottom:auto !important; left:0 !important; display:block !important; width:100% !important; height:818px !important; padding:0 !important; }
+  .artist-grid { position:absolute !important; z-index:6 !important; top:0 !important; right:0 !important; bottom:auto !important; left:0 !important; display:block !important; width:100% !important; height:818px !important; padding:0 !important; }
   .artist-card { position:absolute !important; width:232px !important; height:220px !important; aspect-ratio:auto !important; overflow:hidden; border:1px solid #d8d8d3 !important; background:#777 !important; }
   .artist-card img { width:100%; height:100%; object-fit:cover; filter:none !important; opacity:1; }
   .artist-card span { display:none; }
@@ -94,9 +95,10 @@
 }
 
 @media (max-width:800px) {
-  :root { --paper:#f3f3ef; --ink:#090d0d; }
+  :root { --paper:#f8f5f0; --ink:#090d0d; }
   html,body.reference-home { overflow-x:hidden; background:var(--ink); }
   .growth-stage { display:block !important; z-index:4; opacity:1 !important; }
+  .growth-stage[data-stage="sprout"], .growth-stage[data-stage="branches"] { opacity:0 !important; }
   .growth-surface { display:none !important; }
   .site-header { position:relative; height:44px; padding:0 14px; background:var(--paper) !important; color:var(--ink) !important; }
   .site-brand { width:6px; height:6px; border-radius:50%; background:var(--ink); }
@@ -117,16 +119,16 @@
   .home-hero .hero-statement { right:20px; bottom:52px; width:210px; font-size:12px; line-height:1.05; }
   .home-hero .hero-meta { right:22px; bottom:18px; left:22px; font-size:5px; text-transform:uppercase; }
   .home-about { height:430px; min-height:430px; background:var(--paper) !important; color:var(--ink) !important; }
-  .home-about::after { width:470px; height:360px; right:-145px; top:54px; background-image:url("../assets/growth/hd/sprout-alpha.png"); }
+  .home-about::after { display:block !important; width:340px; height:604px; right:-46px; top:-66px; background-image:url("../assets/growth/source-v2/02-sprout-4k-alpha.png"); background-size:contain; background-position:center bottom; mix-blend-mode:normal; filter:drop-shadow(0 10px 14px rgba(0,0,0,.12)); }
   .home-about h2 { position:absolute; top:90px; left:22px; margin:0; font-size:34px; line-height:.84; }
   .home-about .about-body { position:absolute; top:190px; left:22px; font-size:8px; line-height:1.3; }
   .artist-index { height:690px; min-height:690px; background:var(--ink) !important; color:var(--paper) !important; }
-  .artist-index::after { width:670px; height:600px; right:-250px; top:40px; background-image:url("../assets/growth/hd/branches-alpha.png"); }
+  .artist-index::after { display:block !important; width:430px; height:760px; right:44px; top:-72px; opacity:1; background-image:url("../assets/growth/source-v2/03-vine-connected-v2-alpha.png"); background-size:contain; background-position:center top; mix-blend-mode:normal; filter:drop-shadow(0 10px 14px rgba(0,0,0,.42)); }
   .artist-index .section-intro { position:absolute; top:80px; left:22px; width:230px; margin:0; }
   .artist-index .section-intro h2 { font-size:34px; line-height:.84; }
   .artist-index .section-intro>p { width:180px; margin-top:24px; font-size:8px; }
   .artist-index .index-link { position:static; display:block; margin-top:20px; font-size:6px; }
-  .artist-grid { position:absolute; right:18px; bottom:28px; left:18px; display:grid; grid-template-columns:repeat(2,112px); grid-auto-rows:105px; justify-content:space-between; gap:20px; }
+  .artist-grid { position:absolute; z-index:6; right:18px; bottom:28px; left:18px; display:grid; grid-template-columns:repeat(2,112px); grid-auto-rows:105px; justify-content:space-between; gap:20px; }
   .artist-card { width:112px; height:105px; overflow:hidden; border:1px solid #ccc; }
   .artist-card:nth-child(3) { grid-column:1/-1; justify-self:center; }
   .artist-card:nth-child(even) { translate:0 !important; }
