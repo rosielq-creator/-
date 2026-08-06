@@ -9,7 +9,7 @@
   "plants": [
     {
       "id": "seed",
-      "source": "assets/growth/source-v2/closed-seed-silver.png",
+      "source": "assets/growth/source-v2/01-seed.png",
       "nativeWidth": 2048,
       "nativeHeight": 1783,
       "background": [
@@ -17,7 +17,7 @@
         0,
         0
       ],
-      "sha256": "a97a9875763e9dccc1094152ab61486e8e14002fe039c850c3f7cff4c1a83515",
+      "sha256": "5da5c92a645f0d44ab559886a763bbd4f090c84b366397e7f401c2d7e76edb75",
       "upscaleAllowed": false
     },
     {
